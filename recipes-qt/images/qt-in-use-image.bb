@@ -1,9 +1,12 @@
 require qt-in-use-common.inc
 
+QT_NAME = "qt4"
+
 IMAGE_INSTALL = " \
     ${COMMON_INSTALL} \
     \
     ${XSERVER} \
+    ${QT_DEMOS} \
     x11-common \
     xserver-nodm-init \
     xorg-minimal-fonts \

@@ -20,6 +20,11 @@ COMMON_INSTALL = " \
     ${@base_contains("MACHINE_FEATURES", "systemd", "${SYSTEMD_INSTALL}", "${SYSV_INSTALL}", d)} \
 "
 
+QT_DEMOS = " \
+    ${QT_NAME}-demos \
+    ${QT_NAME}-examples \
+"
+
 do_rootfs[depends] += "virtual/kernel:do_populate_sysroot"
 
 inherit image
