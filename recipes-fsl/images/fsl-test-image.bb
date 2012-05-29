@@ -1,7 +1,7 @@
 DESCRIPTION = "Image with a minimal environemnt and test utilities \
 to be used by BSP developers."
 
-IMAGE_INSTALL = "task-core-boot ${ROOTFS_PKGMANAGE_BOOTSTRAP} ${CORE_IMAGE_EXTRA_INSTALL}"
+IMAGE_INSTALL = "task-base ${ROOTFS_PKGMANAGE_BOOTSTRAP} ${CORE_IMAGE_EXTRA_INSTALL}"
 
 IMAGE_LINGUAS = " "
 
@@ -19,7 +19,4 @@ IMAGE_INSTALL += " \
     gst-meta-video \
     gst-meta-audio \
     gst-fsl-plugin \
-    pciutils \
-    usbutils \
-    alsa-utils \
 "
