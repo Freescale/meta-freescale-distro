@@ -18,6 +18,7 @@ COMMON_INSTALL = " \
     base-passwd \
     busybox \
     ${@base_contains("MACHINE_FEATURES", "systemd", "${SYSTEMD_INSTALL}", "${SYSV_INSTALL}", d)} \
+    task-fsl-gstreamer \
 "
 
 QT_DEMOS = " \

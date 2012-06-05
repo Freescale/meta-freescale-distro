@@ -7,10 +7,6 @@ IMAGE_INSTALL = " \
     \
     ${QT_DEMOS} \
     qt-in-industrial-embedded-smarthome-e \
-    gstreamer \
-    gst-meta-video \
-    gst-meta-audio \
-    gst-fsl-plugin \
     pciutils \
     usbutils \
     alsa-utils \
