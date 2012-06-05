@@ -1,22 +1,22 @@
-DESCRIPTION = "Image with a minimal environemnt and test utilities \
-to be used by BSP developers."
+include recipes-core/images/core-image-base.bb
 
-IMAGE_INSTALL = "task-base ${ROOTFS_PKGMANAGE_BOOTSTRAP} ${CORE_IMAGE_EXTRA_INSTALL}"
+# Add extra image features
+IMAGE_FEATURES += " \
+    nfs-server \
+    tools-debug \
+    tools-profile \
+    tools-testapps \
+"
 
-IMAGE_LINGUAS = " "
 
-LICENSE = "MIT"
-
-inherit core-image
-
-IMAGE_ROOTFS_SIZE = "8192"
-
-# remove not needed ipkg informations
-ROOTFS_POSTPROCESS_COMMAND += "remove_packaging_data_files ; "
+# Test applicationsx
+TEST_TOOLS = " \
+    imx-test \
+"
 
 IMAGE_INSTALL += " \
-    gstreamer \
-    gst-meta-video \
-    gst-meta-audio \
-    gst-fsl-plugin \
+    ${TEST_TOOLS} \
+    task-fsl-gstreamer \
 "
+
+export IMAGE_BASENAME = "fsl-test-image"
