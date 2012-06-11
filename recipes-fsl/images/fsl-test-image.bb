@@ -12,7 +12,6 @@ IMAGE_FEATURES += " \
 BENCHMARK_TOOLS = " \
     lmbench \
     bonnie++ \
-    cpuburn-neon \
     dbench \
     fio \
     iozone3 \
@@ -22,6 +21,8 @@ BENCHMARK_TOOLS = " \
     netperf \
     tiobench \
 "
+# Disabled as it has CRC problems in denzil branch
+#    cpuburn-neon
 
 # Test applicationsx
 TEST_TOOLS = " \
