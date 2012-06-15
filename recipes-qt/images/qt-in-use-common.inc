@@ -18,6 +18,7 @@ COMMON_INSTALL = " \
     base-passwd \
     busybox \
     ${@base_contains("MACHINE_FEATURES", "systemd", "${SYSTEMD_INSTALL}", "${SYSV_INSTALL}", d)} \
+    ${QT_NAME}-plugin-phonon-backend-gstreamer \
     task-fsl-gstreamer \
 "
 
