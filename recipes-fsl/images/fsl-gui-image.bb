@@ -16,6 +16,7 @@ IMAGE_INSTALL += " \
     task-fsl-gstreamer \
     task-fsl-tools-testapps \
     task-fsl-tools-benchmark \
+    qt4-plugin-phonon-backend-gstreamer \
     "
 
 export IMAGE_BASENAME = "fsl-gui-image"
