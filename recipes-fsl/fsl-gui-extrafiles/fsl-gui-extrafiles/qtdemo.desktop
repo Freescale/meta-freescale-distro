@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=QT Demo Launcher 
+Exec=/usr/bin/qtdemo
+Icon=qtdemo
+Terminal=false
+Type=Application
+X-MB-SingleInstance=true
+StartupNotify=true
+Comment=Qt Demo Launcher
