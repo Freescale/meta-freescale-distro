@@ -16,6 +16,7 @@ IMAGE_INSTALL += " \
     task-fsl-gstreamer \
     task-fsl-tools-testapps \
     task-fsl-tools-benchmark \
+    task-qt-in-use-demos \
     qt4-plugin-phonon-backend-gstreamer \
     qt4-demos \
     qt4-examples \
