@@ -13,6 +13,8 @@ EXTRA_IMAGE_FEATURES += " \
 "
 
 IMAGE_INSTALL += " \
+    cpufrequtils \
+    nano \
     task-fsl-gstreamer \
     task-fsl-tools-testapps \
     task-fsl-tools-benchmark \
