@@ -1,0 +1,18 @@
+# Copyright (C) 2012 Freescale Semiconductor
+
+DESCRIPTION = "Extra files for fsl-gui-image"
+LICENSE = "LGPLv2"
+PR = "r1"
+S="${WORKDIR}"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=dfb0b24e10ca72d739b14d769d91cf9b"
+
+SRC_URI += "file://qtbrowser.desktop \
+            file://webkit.png \
+            file://LICENSE"
+
+do_install () {
+    install -d ${D}/${datadir}/pixmaps
+    install -d ${D}/${datadir}/applications
+    install -m 0644 ${WORKDIR}/webkit.png ${D}/${datadir}/pixmaps
+    install -m 0644 ${WORKDIR}/qtbrowser.desktop ${D}/${datadir}/applications
+}
