@@ -7,3 +7,4 @@ Type=Application
 X-MB-SingleInstance=true
 StartupNotify=true
 Comment=Qt Demo Launcher
+StartupNotify=false
