@@ -5,6 +5,5 @@ Icon=webkit
 Terminal=false
 Type=Application
 X-MB-SingleInstance=true
-StartupNotify=true
 Comment=Qt Browser
 StartupNotify=false

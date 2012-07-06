@@ -2,7 +2,7 @@
 
 DESCRIPTION = "Extra files for fsl-gui-image"
 LICENSE = "LGPLv2"
-PR = "r3"
+PR = "r4"
 S="${WORKDIR}"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dfb0b24e10ca72d739b14d769d91cf9b"
 
