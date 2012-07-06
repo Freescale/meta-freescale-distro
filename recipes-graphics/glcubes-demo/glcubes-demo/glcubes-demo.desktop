@@ -5,6 +5,5 @@ Icon=glcubes-ico
 Terminal=false
 Type=Application
 X-MB-SingleInstance=true
-StartupNotify=true
 Comment=GLCubes Demo
 StartupNotify=false
