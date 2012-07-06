@@ -1,4 +1,4 @@
-include recipes-fsl/images/fsl-gui-image.bb
+include recipes-fsl/images/fsl-image-gui.bb
 
 # Add extra image features
 EXTRA_IMAGE_FEATURES += " \
