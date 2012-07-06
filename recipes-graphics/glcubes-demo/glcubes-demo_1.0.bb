@@ -2,6 +2,7 @@ DESCRIPTION = "OpenGL ES 2.0 demo."
 DEPENDS = "amd-gpu-x11-bin-mx51"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://src/glutils.h;endline=19;md5=ef278430dad04019580420bc61a1661d"
+PR = "r1"
 
 SRC_URI  = "git://github.com/andreluizeng/cubes-demo-yocto.git;protocol=git" 
 SRC_URI += "file://glcubes-demo.desktop \

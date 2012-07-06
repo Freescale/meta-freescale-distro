@@ -5,6 +5,5 @@ Icon=qtmediaplayer
 Terminal=false
 Type=Application
 X-MB-SingleInstance=true
-StartupNotify=true
 Comment=Qt Media Player
 StartupNotify=false
