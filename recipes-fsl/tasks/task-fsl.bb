@@ -6,7 +6,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3b58 \
                     file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
-PR = "r5"
+PR = "r6"
 
 inherit task
 
@@ -31,6 +31,7 @@ RDEPENDS_${PN}-tools-testapps = " \
     e2fsprogs-mke2fs \
     i2c-tools \
     imx-test \
+    iproute2 \
 "
 RRECOMMENDS_${PN}-tools-testapps = " \
     gst-fsl-plugin-gplay \
