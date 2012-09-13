@@ -1,5 +1,6 @@
 include recipes-sato/images/core-image-sato.bb
 
+IMAGE_FEATURES += "debug-tweaks"
 DISTRO_FEATURES += "pulseaudio"
 WEB = "web-webkit"
 
