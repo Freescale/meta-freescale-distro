@@ -1,5 +1,7 @@
 include recipes-core/images/core-image-base.bb
 
+IMAGE_FEATURES += "debug-tweaks"
+
 # Add extra image features
 EXTRA_IMAGE_FEATURES += " \
     nfs-server \
