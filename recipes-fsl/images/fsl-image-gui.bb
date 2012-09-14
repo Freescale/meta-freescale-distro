@@ -24,6 +24,9 @@ IMAGE_INSTALL += " \
     qt4-demos \
     qt4-examples \
     fsl-gui-extrafiles \
+    "
+
+IMAGE_INSTALL_mx5 += " \
     glcubes-demo \
     "
 
