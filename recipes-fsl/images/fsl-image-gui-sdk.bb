@@ -1,8 +1,14 @@
 include recipes-fsl/images/fsl-image-gui.bb
 
-# Add extra image features
-EXTRA_IMAGE_FEATURES += " \
+IMAGE_FEATURES += " \
+    apps-console-core \
+    dev-pkgs \
     tools-sdk \
 "
-
+EXTRA_IMAGE_FEATURES += " \
+    tools-debug \
+    tools-profile \
+    tools-testapps \
+    debug-tweaks \
+"
 export IMAGE_BASENAME = "fsl-gui-image-sdk"
