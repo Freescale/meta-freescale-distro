@@ -13,7 +13,11 @@ EXTRA_IMAGE_FEATURES += " \
     qt4-pkgs \
 "
 
+SOC_IMAGE_INSTALL = ""
+SOC_IMAGE_INSTALL_mx5 = "glcubes-demo"
+
 IMAGE_INSTALL += " \
+    ${SOC_IMAGE_INSTALL} \
     cpufrequtils \
     nano \
     task-fsl-gstreamer \
@@ -24,10 +28,6 @@ IMAGE_INSTALL += " \
     qt4-demos \
     qt4-examples \
     fsl-gui-extrafiles \
-    "
-
-IMAGE_INSTALL_mx5 += " \
-    glcubes-demo \
     "
 
 export IMAGE_BASENAME = "fsl-gui-image"
