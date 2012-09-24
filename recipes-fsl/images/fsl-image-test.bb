@@ -11,9 +11,9 @@ EXTRA_IMAGE_FEATURES += " \
 "
 
 IMAGE_INSTALL += " \
-    task-fsl-gstreamer \
-    task-fsl-tools-testapps \
-    task-fsl-tools-benchmark \
+    packagegroup-fsl-gstreamer \
+    packagegroup-fsl-tools-testapps \
+    packagegroup-fsl-tools-benchmark \
 "
 
 export IMAGE_BASENAME = "fsl-test-image"
