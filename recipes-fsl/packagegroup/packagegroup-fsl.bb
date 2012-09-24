@@ -33,6 +33,7 @@ RDEPENDS_${PN}-tools-testapps = " \
     fsl-rc-local \
     gst-plugins-base-tcp \
     i2c-tools \
+    imx-test \
     iproute2 \
     python-subprocess \
     python-datetime \
@@ -41,7 +42,6 @@ RDEPENDS_${PN}-tools-testapps = " \
 
 RRECOMMENDS_${PN}-tools-testapps_mx5 = " \
     gst-fsl-plugin-gplay \
-    imx-test \
 "
 
 RDEPENDS_${PN}-tools-benchmark = " \
