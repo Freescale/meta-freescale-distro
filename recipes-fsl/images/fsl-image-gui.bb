@@ -20,10 +20,10 @@ IMAGE_INSTALL += " \
     ${SOC_IMAGE_INSTALL} \
     cpufrequtils \
     nano \
-    task-fsl-gstreamer \
-    task-fsl-tools-testapps \
-    task-fsl-tools-benchmark \
-    task-qt-in-use-demos \
+    packagegroup-fsl-gstreamer \
+    packagegroup-fsl-tools-testapps \
+    packagegroup-fsl-tools-benchmark \
+    packagegroup-qt-in-use-demos \
     qt4-plugin-phonon-backend-gstreamer \
     qt4-demos \
     qt4-examples \
