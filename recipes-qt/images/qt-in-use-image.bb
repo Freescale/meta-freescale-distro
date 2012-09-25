@@ -7,8 +7,7 @@ IMAGE_INSTALL = " \
     \
     ${XSERVER} \
     ${QT_DEMOS} \
-    x11-common \
-    xserver-nodm-init \
+    packagegroup-core-x11 \
     xorg-minimal-fonts \
     liberation-fonts \
     qt-in-industrial-embedded-smarthome \
