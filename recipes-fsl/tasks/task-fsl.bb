@@ -6,7 +6,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3b58 \
                     file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
-PR = "r10"
+PR = "r11"
 
 inherit task
 
@@ -28,22 +28,26 @@ RDEPENDS_${PN}-gstreamer = " \
     ${MACHINE_GSTREAMER_PLUGIN} \
 "
 
+
+SOC_TOOLS_TESTAPPS = ""
+SOC_TOOLS_TESTAPPS_mx5 = " \
+    amd-gpu-x11-bin-mx51 \
+    gst-fsl-plugin-gplay \
+"
+
 RDEPENDS_${PN}-tools-testapps = " \
+    ${SOC_TOOLS_TESTAPPS} \
     dosfstools \
     evtest \
     e2fsprogs-mke2fs \
     fsl-rc-local \
     gst-plugins-base-tcp \
     i2c-tools \
+    imx-test \
     iproute2 \
     python-subprocess \
     python-datetime \
     python-json \
-"
-
-RRECOMMENDS_${PN}-tools-testapps_mx5 = " \
-    gst-fsl-plugin-gplay \
-    imx-test \
 "
 
 RDEPENDS_${PN}-tools-benchmark = " \
