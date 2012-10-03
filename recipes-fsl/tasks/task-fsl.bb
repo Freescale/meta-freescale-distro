@@ -6,15 +6,13 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3b58 \
                     file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
-PR = "r11"
+PR = "r12"
 
 inherit task
 
 PROVIDES = "${PACKAGES}"
 PACKAGES = " \
     ${PN} \
-    ${PN}-dbg \
-    ${PN}-dev \
     ${PN}-gstreamer \
     ${PN}-tools-testapps \
     ${PN}-tools-benchmark \
