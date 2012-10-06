@@ -11,4 +11,4 @@ EXTRA_IMAGE_FEATURES += " \
     tools-testapps \
     debug-tweaks \
 "
-export IMAGE_BASENAME = "fsl-gui-image-sdk"
+export IMAGE_BASENAME = "fsl-image-gui-sdk"

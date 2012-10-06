@@ -30,4 +30,4 @@ IMAGE_INSTALL += " \
     fsl-gui-extrafiles \
     "
 
-export IMAGE_BASENAME = "fsl-gui-image"
+export IMAGE_BASENAME = "fsl-image-gui"

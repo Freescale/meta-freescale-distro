@@ -16,4 +16,4 @@ IMAGE_INSTALL += " \
     packagegroup-fsl-tools-benchmark \
 "
 
-export IMAGE_BASENAME = "fsl-test-image"
+export IMAGE_BASENAME = "fsl-image-test"
