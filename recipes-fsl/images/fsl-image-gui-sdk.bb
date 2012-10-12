@@ -1,7 +1,6 @@
 include recipes-fsl/images/fsl-image-gui.bb
 
 IMAGE_FEATURES += " \
-    apps-console-core \
     dev-pkgs \
     tools-sdk \
 "
