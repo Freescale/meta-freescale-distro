@@ -6,7 +6,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3b58 \
                     file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
-PR = "r3"
+PR = "r4"
 
 inherit packagegroup
 
@@ -29,6 +29,11 @@ RDEPENDS_${PN}-gstreamer = " \
 SOC_TOOLS_TESTAPPS = ""
 SOC_TOOLS_TESTAPPS_mx5 = " \
     amd-gpu-x11-bin-mx51 \
+    gst-fsl-plugin-gplay \
+"
+
+SOC_TOOLS_TESTAPPS_mx6 = " \
+    gpu-viv-bin-mx6q \
     gst-fsl-plugin-gplay \
 "
 
