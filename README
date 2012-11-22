@@ -21,8 +21,8 @@ revision: HEAD
 Contributing
 ------------
 
-To contribute to this layer you should the patches for review to the
-mailing list.
+To contribute to this layer you should send the patches for review to
+the mailing list.
 
 Mailing list: https://lists.yoctoproject.org/listinfo/meta-freescale
 Source code: https://github.com/Freescale/meta-fsl-demos
