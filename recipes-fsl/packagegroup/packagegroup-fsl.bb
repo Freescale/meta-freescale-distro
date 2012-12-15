@@ -64,7 +64,6 @@ RDEPENDS_${PN}-tools-benchmark = " \
     iperf \
     memtester \
     nbench-byte \
-    netperf \
     tiobench \
     "
 # Disabled as it has CRC problems in denzil branch
