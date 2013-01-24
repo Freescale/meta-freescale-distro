@@ -15,6 +15,11 @@ do_configure_prepend() {
 	find ${S} -type f -exec sed -i 's,/usr/local,/usr,g' '{}' ';'
 }
 
+do_install_append () {
+    # Set the correct smarthome binary path
+    sed -i -e 's:Exec=.*:Exec=${bindir}/smarthome:g' ${D}/usr/share/applications/smarthome.desktop
+}
+
 FILES_${PN} += "${datadir}/${DEMO} ${datadir}/icons"
 RDEPENDS_${PN} += " \
     ${QT_BASE_NAME}-qml-plugins \
