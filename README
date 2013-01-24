@@ -24,5 +24,18 @@ Contributing
 To contribute to this layer you should send the patches for review to
 the mailing list.
 
-Mailing list: https://lists.yoctoproject.org/listinfo/meta-freescale
-Source code: https://github.com/Freescale/meta-fsl-demos
+Mailing list:
+
+    https://lists.yoctoproject.org/listinfo/meta-freescale
+
+Source code:
+
+    https://github.com/Freescale/meta-fsl-demos
+
+When creating a patch of the last commit, use
+
+    git format-patch -s --subject-prefix='meta-fsl-demos][PATCH' -1
+
+To send it to the community, use
+
+    git send-email --to meta-freescale@yoctoproject.org <generated patch>
