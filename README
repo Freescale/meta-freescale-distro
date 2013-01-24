@@ -14,7 +14,7 @@ URI: git://git.openembedded.org/meta-openembedded
 branch: danny
 revision: HEAD
 
-URI: git://github.com/Freescale/meta-fsl-arm.git
+URI: git://git.yoctoproject.org/meta-fsl-arm
 branch: danny
 revision: HEAD
 
