@@ -17,7 +17,7 @@ do_configure_prepend() {
 
 do_install_append () {
     # Set the correct smarthome binary path
-    sed -i -e 's:Exec=.*:Exec=${bindir}/smarthome:g' ${D}/usr/share/applications/smarthome.desktop
+    sed -i -e 's:Exec=.*:Exec=${bindir}/smarthome:g' ${D}${datadir}/applications/smarthome.desktop
 }
 
 FILES_${PN} += "${datadir}/${DEMO} ${datadir}/icons"
