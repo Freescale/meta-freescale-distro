@@ -6,7 +6,7 @@ PV = "0.0+gitr${SRCPV}"
 SRCREV = "4b10cbfd32391c83251bbc61520eeab03461db0a"
 SRC_URI = "git://gitorious.org/qt-in-use/qt-in-industrial-embedded.git"
 
-PR = "r2"
+PR = "r3"
 
 S = "${WORKDIR}/git/${DEMO}"
 

@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING.DOC;md5=ad1419ecc56e060eccf8184a87c4285f \
 
 DEMO = "smarthome"
 
-RCONFLICTS = "qt-in-industrial-embedded-smarthome-e"
+RCONFLICTS_${PN} = "qt-in-industrial-embedded-smarthome-e"
 
 inherit qt4x11
 
