@@ -69,6 +69,9 @@ RDEPENDS_${PN}-tools-benchmark = " \
 # Disabled as it has CRC problems in denzil branch
 #    cpuburn-neon
 
-ALLOW_EMPTY = "1"
+ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY_${PN}-gstreamer = "1"
+ALLOW_EMPTY_${PN}-tools-testapps = "1"
+ALLOW_EMPTY_${PN}-tools-benchmark = "1"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
