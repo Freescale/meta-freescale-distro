@@ -53,6 +53,7 @@ RDEPENDS_${PN}-tools-testapps = " \
     python-datetime \
     python-json \
     v4l-utils \
+    ethtool \
 "
 
 RDEPENDS_${PN}-tools-benchmark = " \
