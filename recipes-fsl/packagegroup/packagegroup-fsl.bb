@@ -1,4 +1,4 @@
-# Copyright (C) 2012 Freescale Semiconductor
+# Copyright (C) 2012-2013 Freescale Semiconductor
 # Released under the MIT license (see COPYING.MIT for the terms)
 
 DESCRIPTION = "Freescale package group"
@@ -49,6 +49,7 @@ RDEPENDS_${PN}-tools-testapps = " \
     i2c-tools \
     imx-test \
     iproute2 \
+    memtester \
     python-subprocess \
     python-datetime \
     python-json \
@@ -63,7 +64,6 @@ RDEPENDS_${PN}-tools-benchmark = " \
     fio \
     iozone3 \
     iperf \
-    memtester \
     nbench-byte \
     tiobench \
     "
