@@ -37,6 +37,10 @@ SOC_TOOLS_TESTAPPS_mx6 = " \
     gst-fsl-plugin-gplay \
 "
 
+SOC_TOOLS_TESTAPPS_mx28 = " \
+    gst-fsl-plugin-gplay \
+"
+
 RDEPENDS_${PN}-tools-testapps = " \
     ${SOC_TOOLS_TESTAPPS} \
     alsa-utils \
