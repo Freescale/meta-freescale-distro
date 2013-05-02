@@ -59,6 +59,8 @@ RDEPENDS_${PN}-tools-testapps = " \
     python-json \
     v4l-utils \
     ethtool \
+    mtd-utils \
+    mtd-utils-ubifs \
 "
 
 RDEPENDS_${PN}-tools-benchmark = " \
