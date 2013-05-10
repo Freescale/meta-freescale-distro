@@ -1,8 +1,8 @@
-# Copyright (C) 2012 Freescale Semiconductor
+# Copyright (C) 2012-2013 Freescale Semiconductor
 
 DESCRIPTION = "Extra files for fsl-gui-image"
 LICENSE = "LGPLv2"
-PR = "r5"
+PR = "r6"
 S="${WORKDIR}"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=dfb0b24e10ca72d739b14d769d91cf9b"
 
@@ -15,6 +15,8 @@ SRC_URI += "file://qtbrowser.desktop \
             file://qthellogles2.desktop \
             file://hellogl_es2.png \
             file://LICENSE"
+
+inherit allarch
 
 do_install () {
     install -d ${D}/${datadir}/pixmaps
