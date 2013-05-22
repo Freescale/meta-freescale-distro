@@ -1,0 +1,32 @@
+From 390db03809834919d8d49faf9a0a528321684ac5 Mon Sep 17 00:00:00 2001
+From: Diego Rondini <diego.ml@zoho.com>
+Date: Tue, 30 Apr 2013 12:46:38 +0200
+Subject: [PATCH 2/2] Don't build missing GLES1.1 samples in X11 Makefile
+
+GLES1.1 samples 18_VertexBufferObjects and 19_Beizer are not included in the package, so don't try to compile them in X11 Makefile
+
+Upstream-Status: Pending
+
+Signed-off-by: Diego Rondini <diego.ml@zoho.com>
+---
+ Samples/GLES1.1/Makefile.x11 |    4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/Samples/GLES1.1/Makefile.x11 b/Samples/GLES1.1/Makefile.x11
+index 003763d..1c95158 100755
+--- a/Samples/GLES1.1/Makefile.x11
++++ b/Samples/GLES1.1/Makefile.x11
+@@ -17,9 +17,7 @@ SUB_PROJECTS= \
+ 	14_ParticlesSpritesAnimation \
+ 	15_ParticleAccelerator \
+ 	16_VertexBufferObjects \
+-	17_Beizer \
+-	18_VertexBufferObjects \
+-	19_Beizer
++	17_Beizer
+ 	
+ 
+ .PHONY: all
+-- 
+1.7.9.5
+

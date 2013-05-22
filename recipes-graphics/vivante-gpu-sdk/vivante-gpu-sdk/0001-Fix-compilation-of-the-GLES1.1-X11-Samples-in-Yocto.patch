@@ -1,0 +1,598 @@
+From 1d18aae77f0c2ff411d19ed5bd8c0b96bfd90190 Mon Sep 17 00:00:00 2001
+From: Diego Rondini <diego.ml@zoho.com>
+Date: Tue, 30 Apr 2013 10:52:25 +0200
+Subject: [PATCH 1/2] Fix compilation of the GLES1.1 X11 Samples in Yocto
+
+This commit fixes the following build problems:
+- gcc 4.7 compatibility (remove unsupported "-Wl" option);
+- wrong compiler binary name (caused by an overwrite of CC and AR variables)
+- unknown include and library paths (caused by forcing paths when not needed)
+
+Upstream-Status: Pending
+
+Signed-off-by: Diego Rondini <diego.ml@zoho.com>
+---
+ Samples/GLES1.1/01_SimpleTriangle/Makefile.x11     |    9 +--------
+ Samples/GLES1.1/02_VertexColors/Makefile.x11       |    7 +------
+ .../GLES1.1/03_VertexTransformation/Makefile.x11   |    7 +------
+ .../04_ColoredVerticesInterpolation/Makefile.x11   |    7 +------
+ Samples/GLES1.1/05_GeometricObjects/Makefile.x11   |    7 +------
+ Samples/GLES1.1/06_Projection/Makefile.x11         |    7 +------
+ Samples/GLES1.1/07_BasicTexturing/Makefile.x11     |    7 +------
+ Samples/GLES1.1/08_Multitexturing/Makefile.x11     |    7 +------
+ Samples/GLES1.1/09_Alphablending/Makefile.x11      |    7 +------
+ Samples/GLES1.1/10_FilteringLights/Makefile.x11    |    7 +------
+ Samples/GLES1.1/11_LightingFog/Makefile.x11        |    7 +------
+ Samples/GLES1.1/12_Stencil/Makefile.x11            |    7 +------
+ Samples/GLES1.1/13_3DFonts/Makefile.x11            |    7 +------
+ .../14_ParticlesSpritesAnimation/Makefile.x11      |    7 +------
+ .../GLES1.1/15_ParticleAccelerator/Makefile.x11    |    7 +------
+ .../GLES1.1/16_VertexBufferObjects/Makefile.x11    |    7 +------
+ Samples/GLES1.1/17_Beizer/Makefile.x11             |    7 +------
+ 17 files changed, 17 insertions(+), 104 deletions(-)
+
+diff --git a/Samples/GLES1.1/01_SimpleTriangle/Makefile.x11 b/Samples/GLES1.1/01_SimpleTriangle/Makefile.x11
+index 1b86dbf..54c09ab 100755
+--- a/Samples/GLES1.1/01_SimpleTriangle/Makefile.x11
++++ b/Samples/GLES1.1/01_SimpleTriangle/Makefile.x11
+@@ -2,12 +2,6 @@ APPNAME			:= 01_SimpleTriangle
+ DESTDIR			?= .
+ 
+ 
+-# Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+-
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +15,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ 
+@@ -30,7 +23,7 @@ OBJECTS_TUT += \
+ 	$(COMMON_DIR)/src/fsl_egl.o\
+ 	$(COMMON_DIR)/src/glu3.o
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL  -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL  -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/02_VertexColors/Makefile.x11 b/Samples/GLES1.1/02_VertexColors/Makefile.x11
+index 6d9d063..d2294e8 100755
+--- a/Samples/GLES1.1/02_VertexColors/Makefile.x11
++++ b/Samples/GLES1.1/02_VertexColors/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			?= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ 
+@@ -30,7 +25,7 @@ OBJECTS_TUT += \
+ 	$(COMMON_DIR)/src/fsl_egl.o\
+ 	$(COMMON_DIR)/src/glu3.o
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL  -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL  -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/03_VertexTransformation/Makefile.x11 b/Samples/GLES1.1/03_VertexTransformation/Makefile.x11
+index b5574e0..8f41874 100755
+--- a/Samples/GLES1.1/03_VertexTransformation/Makefile.x11
++++ b/Samples/GLES1.1/03_VertexTransformation/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			?= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ 
+@@ -30,7 +25,7 @@ OBJECTS_TUT += \
+ 	$(COMMON_DIR)/src/fsl_egl.o\
+ 	$(COMMON_DIR)/src/glu3.o
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL  -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL  -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/04_ColoredVerticesInterpolation/Makefile.x11 b/Samples/GLES1.1/04_ColoredVerticesInterpolation/Makefile.x11
+index c9346f2..9092b2b 100755
+--- a/Samples/GLES1.1/04_ColoredVerticesInterpolation/Makefile.x11
++++ b/Samples/GLES1.1/04_ColoredVerticesInterpolation/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			?= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ 
+@@ -29,7 +24,7 @@ OBJECTS_TUT += \
+ 	ColoredVerticesInterpolation.o \
+ 	$(COMMON_DIR)/src/fsl_egl.o\
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/05_GeometricObjects/Makefile.x11 b/Samples/GLES1.1/05_GeometricObjects/Makefile.x11
+index a2cec68..295fd77 100755
+--- a/Samples/GLES1.1/05_GeometricObjects/Makefile.x11
++++ b/Samples/GLES1.1/05_GeometricObjects/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			?= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ 
+@@ -30,7 +25,7 @@ OBJECTS_TUT += \
+ 	$(COMMON_DIR)/src/fsl_egl.o\
+ 	$(COMMON_DIR)/src/glu3.o
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/06_Projection/Makefile.x11 b/Samples/GLES1.1/06_Projection/Makefile.x11
+index 84b674f..a33dcef 100755
+--- a/Samples/GLES1.1/06_Projection/Makefile.x11
++++ b/Samples/GLES1.1/06_Projection/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			?= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ 
+@@ -30,7 +25,7 @@ OBJECTS_TUT += \
+ 	render.o \
+ 	$(COMMON_DIR)/src/fsl_egl.o\
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/07_BasicTexturing/Makefile.x11 b/Samples/GLES1.1/07_BasicTexturing/Makefile.x11
+index a22a236..1278393 100755
+--- a/Samples/GLES1.1/07_BasicTexturing/Makefile.x11
++++ b/Samples/GLES1.1/07_BasicTexturing/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ 
+@@ -33,7 +28,7 @@ OBJECTS_TUT += \
+ 
+ ASSETS	= BasicTexturing.bmp
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/08_Multitexturing/Makefile.x11 b/Samples/GLES1.1/08_Multitexturing/Makefile.x11
+index f8d244f..d8a3841 100755
+--- a/Samples/GLES1.1/08_Multitexturing/Makefile.x11
++++ b/Samples/GLES1.1/08_Multitexturing/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			?= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ ASSETS	= data
+@@ -32,7 +27,7 @@ OBJECTS_TUT += \
+ 	$(COMMON_DIR)/src/fsl_egl.o\
+ 	$(COMMON_DIR)/src/fslutil.o\
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/09_Alphablending/Makefile.x11 b/Samples/GLES1.1/09_Alphablending/Makefile.x11
+index aa9ab43..39c964a 100755
+--- a/Samples/GLES1.1/09_Alphablending/Makefile.x11
++++ b/Samples/GLES1.1/09_Alphablending/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ 
+@@ -33,7 +28,7 @@ OBJECTS_TUT += \
+ 
+ ASSETS	= Alphablending.bmp
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/10_FilteringLights/Makefile.x11 b/Samples/GLES1.1/10_FilteringLights/Makefile.x11
+index d5f17c7..9ac6886 100755
+--- a/Samples/GLES1.1/10_FilteringLights/Makefile.x11
++++ b/Samples/GLES1.1/10_FilteringLights/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ 
+@@ -33,7 +28,7 @@ OBJECTS_TUT += \
+ 
+ ASSETS	= FilteringLights.bmp
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/11_LightingFog/Makefile.x11 b/Samples/GLES1.1/11_LightingFog/Makefile.x11
+index a284335..d2f57c2 100755
+--- a/Samples/GLES1.1/11_LightingFog/Makefile.x11
++++ b/Samples/GLES1.1/11_LightingFog/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			?= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ ASSETS	= data	
+@@ -32,7 +27,7 @@ OBJECTS_TUT += \
+ 	$(COMMON_DIR)/src/fsl_egl.o\
+ 
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/12_Stencil/Makefile.x11 b/Samples/GLES1.1/12_Stencil/Makefile.x11
+index 7d86842..1823434 100755
+--- a/Samples/GLES1.1/12_Stencil/Makefile.x11
++++ b/Samples/GLES1.1/12_Stencil/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ 
+@@ -30,7 +25,7 @@ OBJECTS_TUT += \
+ 	$(COMMON_DIR)/src/fsl_egl.o\
+ 	$(COMMON_DIR)/src/glu3.o
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/13_3DFonts/Makefile.x11 b/Samples/GLES1.1/13_3DFonts/Makefile.x11
+index 7075616..0499002 100755
+--- a/Samples/GLES1.1/13_3DFonts/Makefile.x11
++++ b/Samples/GLES1.1/13_3DFonts/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			?= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -24,7 +20,6 @@ ASSETS	= data
+ 
+ 	
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ 
+@@ -35,7 +30,7 @@ OBJECTS_TUT += \
+ 	$(COMMON_DIR)/src/fsl_egl.o\
+ 	$(COMMON_DIR)/src/fslutil.o\
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/14_ParticlesSpritesAnimation/Makefile.x11 b/Samples/GLES1.1/14_ParticlesSpritesAnimation/Makefile.x11
+index ccf7a75..7be1e6d 100755
+--- a/Samples/GLES1.1/14_ParticlesSpritesAnimation/Makefile.x11
++++ b/Samples/GLES1.1/14_ParticlesSpritesAnimation/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ 
+@@ -33,7 +28,7 @@ OBJECTS_TUT += \
+ 
+ ASSETS	= ParticlesSpritesAnimation.bmp
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/15_ParticleAccelerator/Makefile.x11 b/Samples/GLES1.1/15_ParticleAccelerator/Makefile.x11
+index 67bae20..72c557e 100755
+--- a/Samples/GLES1.1/15_ParticleAccelerator/Makefile.x11
++++ b/Samples/GLES1.1/15_ParticleAccelerator/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			?= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 
+ ASSETS	= data
+@@ -37,7 +32,7 @@ OBJECTS_TUT += \
+ 	$(COMMON_DIR)/src/fsl_egl.o\
+ 	$(COMMON_DIR)/src/fslutil.o\
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/16_VertexBufferObjects/Makefile.x11 b/Samples/GLES1.1/16_VertexBufferObjects/Makefile.x11
+index 418f37d..a96e982 100755
+--- a/Samples/GLES1.1/16_VertexBufferObjects/Makefile.x11
++++ b/Samples/GLES1.1/16_VertexBufferObjects/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			?= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 
+ ASSETS	= data
+@@ -36,7 +31,7 @@ OBJECTS_TUT += \
+ 	$(COMMON_DIR)/src/fsl_egl.o\
+ 	$(COMMON_DIR)/src/fslutil.o\
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+diff --git a/Samples/GLES1.1/17_Beizer/Makefile.x11 b/Samples/GLES1.1/17_Beizer/Makefile.x11
+index 7fba8ce..1e18c51 100755
+--- a/Samples/GLES1.1/17_Beizer/Makefile.x11
++++ b/Samples/GLES1.1/17_Beizer/Makefile.x11
+@@ -3,11 +3,7 @@ DESTDIR			= .
+ 
+ 
+ # Make command to use for dependencies
+-CC = $(CROSS_COMPILE)gcc
+-AR = $(CROSS_COMPILE)ar
+ 
+-TARGET_PATH_LIB = $(ROOTFS)/usr/lib
+-TARGET_PATH_INCLUDE = $(ROOTFS)/usr/include
+ COMMON_DIR=../common
+ 
+ BIN_TUT = $(DESTDIR)/$(APPNAME)
+@@ -21,7 +17,6 @@ CFLAGS_TUT += \
+ 	-DEGL_USE_X11 \
+ 
+ CFLAGS_TUT += \
+-	-I$(TARGET_PATH_INCLUDE) \
+ 	-I$(COMMON_DIR)/inc \
+ 	
+ 
+@@ -33,7 +28,7 @@ OBJECTS_TUT += \
+ 
+ ASSETS	= Beizer.bmp
+ 
+-DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl -Wl,--library-path=$(TARGET_PATH_LIB),-rpath-link=$(TARGET_PATH_LIB)
++DEPS_TUT = -lstdc++ -lm -lGLESv1_CM -lEGL -lX11 -ldl
+ 
+ $(BIN_TUT) : $(OBJECTS_TUT)
+ 	@echo " LD " $@
+-- 
+1.7.9.5
+
