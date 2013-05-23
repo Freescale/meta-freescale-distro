@@ -13,6 +13,7 @@ inherit packagegroup
 PROVIDES = "${PACKAGES}"
 PACKAGES += " \
     ${PN}-gstreamer \
+    ${PN}-gstreamer-streamer \
     ${PN}-tools-testapps \
     ${PN}-tools-benchmark \
 "
@@ -25,6 +26,11 @@ RDEPENDS_${PN}-gstreamer = " \
     ${MACHINE_GSTREAMER_PLUGIN} \
 "
 
+RDEPENDS_${PN}-gstreamer-streamer = " \
+    ${PN}-gstreamer \
+    gst-plugins-good-rtp \
+    gst-plugins-good-rtsp \
+"
 
 SOC_TOOLS_TESTAPPS = ""
 SOC_TOOLS_TESTAPPS_mx5 = " \
