@@ -33,4 +33,4 @@ do_install () {
 }
 
 FILES_${PN} += "/opt/${PN}"
-FILES_${PN}-dbg = "/opt/${PN}/*/*/.debug"
+FILES_${PN}-dbg += "/opt/${PN}/*/*/.debug"
