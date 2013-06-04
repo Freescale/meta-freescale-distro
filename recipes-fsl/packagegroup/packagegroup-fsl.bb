@@ -28,7 +28,9 @@ RDEPENDS_${PN}-gstreamer = " \
 
 RDEPENDS_${PN}-gstreamer-streamer = " \
     ${PN}-gstreamer \
+    gst-plugins-good-udp \
     gst-plugins-good-rtp \
+    gst-plugins-good-rtpmanager \
     gst-plugins-good-rtsp \
 "
 
