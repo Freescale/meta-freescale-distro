@@ -2,6 +2,7 @@ SUMMARY = "Vivante GPU SDK Samples"
 DESCRIPTION = "Set of sample applications compatible with Vivante GPU"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b3ed4253a63ac8555ccab7c4c0aa29a1"
+DEPENDS = "virtual/libgles1"
 
 inherit fsl-eula-unpack
 
