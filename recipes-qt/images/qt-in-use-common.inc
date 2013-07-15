@@ -10,7 +10,6 @@ SYSV_INSTALL = " \
     udev \
     sysvinit \
     initscripts \
-    tinylogin \
 "
 
 COMMON_INSTALL = " \
