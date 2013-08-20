@@ -29,4 +29,4 @@ QT_DEMOS = " \
 
 do_rootfs[depends] += "virtual/kernel:do_populate_sysroot"
 
-inherit image
+inherit core-image
