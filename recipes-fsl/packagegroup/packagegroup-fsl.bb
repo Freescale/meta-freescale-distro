@@ -38,20 +38,15 @@ RDEPENDS_${PN}-gstreamer-streamer = " \
 SOC_TOOLS_TESTAPPS = ""
 SOC_TOOLS_TESTAPPS_mx5 = " \
     amd-gpu-x11-bin-mx51 \
-    gst-fsl-plugin-gplay \
 "
 
 SOC_TOOLS_TESTAPPS_mx6 = " \
     gpu-viv-bin-mx6q \
-    gst-fsl-plugin-gplay \
-"
-
-SOC_TOOLS_TESTAPPS_mx28 = " \
-    gst-fsl-plugin-gplay \
 "
 
 RDEPENDS_${PN}-tools-testapps = " \
     ${SOC_TOOLS_TESTAPPS} \
+    ${@base_contains("MACHINE_GSTREAMER_PLUGIN", "gst-fsl-plugin", "gst-fsl-plugin-gplay", "", d)} \
     alsa-utils \
     alsa-tools \
     dosfstools \
