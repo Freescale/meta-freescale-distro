@@ -23,6 +23,7 @@ MACHINE_GSTREAMER_PLUGIN ?= ""
 RDEPENDS_${PN}-gstreamer = " \
     gst-meta-audio \
     gst-meta-video \
+    gst-meta-debug \
     gst-plugins-good-meta \
     ${MACHINE_GSTREAMER_PLUGIN} \
 "
