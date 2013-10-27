@@ -62,7 +62,7 @@ RDEPENDS_${PN}-tools-testapps = " \
     python-subprocess \
     python-datetime \
     python-json \
-    v4l-utils \
+    ${@base_contains('DISTRO_FEATURES', 'x11', 'v4l-utils', '', d)} \
     ethtool \
     mtd-utils \
     mtd-utils-ubifs \
