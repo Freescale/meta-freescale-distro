@@ -27,6 +27,8 @@ QT_DEMOS = " \
     ${QT_NAME}-examples \
 "
 
+IMAGE_FEATURES += "splash"
+
 do_rootfs[depends] += "virtual/kernel:do_populate_sysroot"
 
 inherit core-image
