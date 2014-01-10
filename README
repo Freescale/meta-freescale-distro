@@ -7,15 +7,15 @@ use with OpenEmbedded and/or Yocto Freescale's BSP layer.
 This layer depends on:
 
 URI: git://git.openembedded.org/openembedded-core
-branch: danny
+branch: dora
 revision: HEAD
 
 URI: git://git.openembedded.org/meta-openembedded
-branch: danny
+branch: dora
 revision: HEAD
 
 URI: git://git.yoctoproject.org/meta-fsl-arm
-branch: danny
+branch: dora
 revision: HEAD
 
 Contributing
