@@ -1,0 +1,37 @@
+#!/bin/sh
+
+set -e
+
+SMARTHOME="smarthome"
+SMARTHOME_ARGS="`[ -x '__BINDIR__/X' ] && echo '' || echo '-qws'`"
+
+case "$1" in
+  start)
+	echo "Starting $SMARTHOME"
+	if [ -f __SYSCONFDIR__/profile.d/tslib.sh ]; then
+		. __SYSCONFDIR__/profile.d/tslib.sh
+	fi
+	if [ -e "$TSLIB_TSDEVICE" ]; then
+		if [ ! -f __SYSCONFDIR__/pointercal ]; then
+			__BINDIR__/ts_calibrate
+		fi
+                QWS_MOUSE_PROTO=tslib:$TSLIB_TSDEVICE $SMARTHOME $SMARTHOME_ARGS &
+	else
+		$SMARTHOME $SMARTHOME_ARGS &
+	fi
+	;;
+  stop)
+	echo "Stopping $SMARTHOME"
+        killall $SMARTHOME
+	;;
+  restart)
+	$0 stop
+	$0 start
+	;;
+  *)
+	echo "usage: $0 { start | stop | restart }" >&2
+	exit 1
+	;;
+esac
+
+exit 0
