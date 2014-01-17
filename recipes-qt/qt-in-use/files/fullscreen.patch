@@ -1,0 +1,13 @@
+diff --git a/smarthome/main.cpp b/smarthome/main.cpp
+index 89c60f3..bed47e8 100644
+--- a/smarthome/main.cpp
++++ b/smarthome/main.cpp
+@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
+     QmlApplicationViewer viewer;
+     viewer.setOrientation(QmlApplicationViewer::ScreenOrientationLockLandscape);
+     viewer.setMainQmlFile(QLatin1String("qml/smarthome/smarthome.qml"));
+-    viewer.show();
++    viewer.showFullScreen();
+ 
+     return app.exec();
+ }
