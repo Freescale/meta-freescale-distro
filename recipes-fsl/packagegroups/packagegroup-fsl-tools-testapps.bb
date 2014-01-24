@@ -10,7 +10,7 @@ inherit packagegroup
 
 SOC_TOOLS_TESTAPPS = ""
 SOC_TOOLS_TESTAPPS_mx5 = " \
-    amd-gpu-x11-bin-mx51 \
+    ${@base_contains('DISTRO_FEATURES', 'x11', 'amd-gpu-x11-bin-mx51', 'amd-gpu-bin-mx51', d)} \
 "
 
 SOC_TOOLS_TESTAPPS_mx6 = " \
