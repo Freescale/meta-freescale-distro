@@ -17,4 +17,7 @@ RDEPENDS_${PN} = " \
     iperf \
     nbench-byte \
     tiobench \
+    ${@bb.utils.contains('TUNE_FEATURES', 'neon', 'cpuburn-neon', '', d)} \
 "
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
