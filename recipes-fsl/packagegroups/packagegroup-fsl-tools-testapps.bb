@@ -8,19 +8,9 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3
 
 inherit packagegroup
 
-SOC_TOOLS_TESTAPPS = ""
-SOC_TOOLS_TESTAPPS_mx5 = " \
-    ${@base_contains('DISTRO_FEATURES', 'x11', 'amd-gpu-x11-bin-mx51', 'amd-gpu-bin-mx51', d)} \
-"
-
-SOC_TOOLS_TESTAPPS_mx6 = " \
-    gpu-viv-bin-mx6q \
-"
-
 MACHINE_GSTREAMER_PLUGIN ?= ""
 
 RDEPENDS_${PN} = " \
-    ${SOC_TOOLS_TESTAPPS} \
     ${@base_contains("MACHINE_GSTREAMER_PLUGIN", "gst-fsl-plugin", "gst-fsl-plugin-gplay", "", d)} \
     alsa-utils \
     alsa-tools \

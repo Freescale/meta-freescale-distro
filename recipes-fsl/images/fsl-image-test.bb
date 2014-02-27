@@ -14,6 +14,8 @@ EXTRA_IMAGE_FEATURES += " \
 
 IMAGE_INSTALL += " \
     packagegroup-fsl-gstreamer \
+    packagegroup-fsl-tools-gpu \
+    packagegroup-fsl-tools-gpu-external \
     packagegroup-fsl-tools-testapps \
     packagegroup-fsl-tools-benchmark \
 "
