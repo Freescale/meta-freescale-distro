@@ -14,6 +14,7 @@ EXTRA_IMAGE_FEATURES += " \
 
 IMAGE_INSTALL += " \
     packagegroup-fsl-gstreamer \
+    gst-plugins-good-meta \
     packagegroup-fsl-tools-gpu \
     packagegroup-fsl-tools-gpu-external \
     packagegroup-fsl-tools-testapps \

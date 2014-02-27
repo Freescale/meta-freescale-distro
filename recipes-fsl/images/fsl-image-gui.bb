@@ -23,6 +23,7 @@ IMAGE_INSTALL += " \
     cpufrequtils \
     nano \
     packagegroup-fsl-gstreamer \
+    gst-plugins-good-meta \
     packagegroup-fsl-tools-gpu \
     packagegroup-fsl-tools-gpu-external \
     packagegroup-fsl-tools-testapps \

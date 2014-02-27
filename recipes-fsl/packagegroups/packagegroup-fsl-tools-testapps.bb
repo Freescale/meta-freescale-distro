@@ -8,17 +8,13 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3
 
 inherit packagegroup
 
-MACHINE_GSTREAMER_PLUGIN ?= ""
-
 RDEPENDS_${PN} = " \
-    ${@base_contains("MACHINE_GSTREAMER_PLUGIN", "gst-fsl-plugin", "gst-fsl-plugin-gplay", "", d)} \
     alsa-utils \
     alsa-tools \
     dosfstools \
     evtest \
     e2fsprogs-mke2fs \
     fsl-rc-local \
-    gst-plugins-base-tcp \
     i2c-tools \
     imx-test \
     iproute2 \
@@ -31,5 +27,3 @@ RDEPENDS_${PN} = " \
     mtd-utils \
     mtd-utils-ubifs \
 "
-
-PACKAGE_ARCH = "${MACHINE_ARCH}"
