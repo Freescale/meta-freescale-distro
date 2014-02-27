@@ -7,6 +7,11 @@ WL_DEPENDS = "${@base_contains('DISTRO_FEATURES', 'wayland', 'wayland', '', d)}"
 
 inherit fsl-eula-unpack
 
+# For backwards compatibility
+RPROVIDES_${PN} = "vivante-gpu-sdk"
+RREPLACES_${PN} = "vivante-gpu-sdk"
+RCONFLICTS_${PN} = "vivante-gpu-sdk"
+
 SRC_URI = "${FSL_MIRROR}/${PN}-${PV}.bin;fsl-eula=true"
 SRC_URI[md5sum] = "7cf0e66cfc6202a51bdd42573e601e6a"
 SRC_URI[sha256sum] = "89e3753b343b67e3a0d82fe3e96f0b388e73a650c2a00c767cf67efce7d0c217"
