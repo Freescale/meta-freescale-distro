@@ -1,7 +1,9 @@
 # Copyright (C) 2014 Freescale Semiconductor
 # Released under the MIT license (see COPYING.MIT for the terms)
-
-DESCRIPTION = "Freescale package group - tools/gpu/external"
+DESCRIPTION = "Freescale's package group which provides graphic packages used \
+to test the several hardware accelerated graphics APIs including packages not \
+provided by Freescale."
+SUMMARY = "Freescale package group - tools/gpu/external"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3b58 \
                     file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
