@@ -2,7 +2,9 @@ SUMMARY = "Freescale GPU SDK Samples"
 DESCRIPTION = "Set of sample applications for Freescale GPU"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://COPYING;md5=44e96dac83a60d6c21a6055f7b31cf0c"
-DEPENDS = "virtual/libgles1 virtual/libgles2 ${WL_DEPENDS}"
+DEPENDS = "${WL_DEPENDS}"
+DEPENDS_append_mx6q = " virtual/libgles1 virtual/libgles2"
+DEPENDS_append_mx6dl = " virtual/libgles1 virtual/libgles2"
 WL_DEPENDS = "${@base_contains('DISTRO_FEATURES', 'wayland', 'wayland', '', d)}"
 
 inherit fsl-eula-unpack
@@ -18,7 +20,9 @@ SRC_URI[sha256sum] = "89e3753b343b67e3a0d82fe3e96f0b388e73a650c2a00c767cf67efce7
 
 S = "${WORKDIR}/${PN}-${PV}"
 
-SUPPORTED_APIS = "GLES1.1 GLES2.0 ${@base_contains('DISTRO_FEATURES', 'x11', '', 'OpenVG', d)}"
+SUPPORTED_APIS = "${@base_contains('DISTRO_FEATURES', 'x11', '', 'OpenVG', d)}"
+SUPPORTED_APIS_append_mx6q = " GLES1.1 GLES2.0"
+SUPPORTED_APIS_append_mx6dl = " GLES1.1 GLES2.0"
 MAKEFILE_NO_X11 = "${@base_contains('DISTRO_FEATURES', 'wayland', 'Makefile.wl', 'Makefile.fbdev', d)}"
 MAKEFILE = "${@base_contains('DISTRO_FEATURES', 'x11', 'Makefile.x11', '${MAKEFILE_NO_X11}', d)}"
 
