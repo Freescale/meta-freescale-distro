@@ -28,4 +28,13 @@ RDEPENDS_${PN} = " \
     ethtool \
     mtd-utils \
     mtd-utils-ubifs \
+    ${@base_contains('DISTRO_FEATURES', 'x11', '', \
+                      base_contains('DISTRO_FEATURES', 'wayland', \
+                                    'weston weston-examples \
+                                     gtk+3-demo clutter-1.0-examples', '', d), d)} \
 "
+
+# FIXME: i.MX6SL cannot use mesa for Graphics and it lacks GL support,
+#        so for now we skip it.
+RDEPENDS_${PN}_remove_mx6sl = "clutter-1.0-examples"
+PACKAGE_ARCH_mx6sl = "${MACHINE_ARCH}"
