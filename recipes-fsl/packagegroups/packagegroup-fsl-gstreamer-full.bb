@@ -20,3 +20,7 @@ RDEPENDS_${PN} = " \
                       base_contains('DISTRO_FEATURES', 'x11', \
                                     'gst-plugins-gl', '', d), '', d)} \
 "
+# FIXME: i.MX6SL cannot use mesa for Graphics and it lacks 3D support,
+#        so skip it for now.
+RDEPENDS_${PN}_remove_mx6sl = "gst-plugins-gl"
+PACKAGE_ARCH_mx6sl = "${MACHINE_ARCH}"
