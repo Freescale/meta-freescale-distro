@@ -9,6 +9,8 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3b58 \
                     file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
+PACKAGE_ARCH_mx6sl = "${MACHINE_ARCH}"
+
 inherit packagegroup
 
 RDEPENDS_${PN} = " \
@@ -23,4 +25,3 @@ RDEPENDS_${PN} = " \
 # FIXME: i.MX6SL cannot use mesa for Graphics and it lacks 3D support,
 #        so skip it for now.
 RDEPENDS_${PN}_remove_mx6sl = "gst-plugins-gl"
-PACKAGE_ARCH_mx6sl = "${MACHINE_ARCH}"
