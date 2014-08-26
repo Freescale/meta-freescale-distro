@@ -19,7 +19,7 @@ SOC_TOOLS_GPU_mx5 = " \
 SOC_TOOLS_GPU_mx6 = " \
     gpu-viv-bin-mx6q \
     gpu-viv-g2d \
-    ${@base_contains('DISTRO_FEATURES', 'x11', 'fsl-gpu-sdk', '', d)} \
+    fsl-gpu-sdk \
 "
 
 RDEPENDS_${PN} = " \
