@@ -1,7 +1,7 @@
 # Copyright (C) 2012-2014 Freescale Semiconductor
 # Released under the MIT license (see COPYING.MIT for the terms)
 
-DESCRIPTION = "Freescale's package group which provides audio, video, and debug\
+DESCRIPTION = "Freescale's package group which provides audio, video, and debug \
 gstreamer's plugins with the required hardware acceleration (if supported by the SoC)."
 SUMMARY = "Freescale package group - gstreamer"
 LICENSE = "MIT"
