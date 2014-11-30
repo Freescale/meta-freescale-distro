@@ -1,6 +1,6 @@
 DESCRIPTION = "Demos from the industrial embedded segment"
 
-inherit autotools update-rc.d
+inherit autotools-brokensep update-rc.d
 
 PV = "0.0+gitr${SRCPV}"
 SRCREV = "4b10cbfd32391c83251bbc61520eeab03461db0a"
