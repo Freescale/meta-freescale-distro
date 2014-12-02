@@ -15,6 +15,6 @@ RDEPENDS_${PN} = " \
 
 # Plugins from the -ugly collection which require the "commercial" flag in LICENSE_FLAGS_WHITELIST to be set
 RDEPENDS_${PN} = " \
-    gstreamer1.0-plugins-ugly-mpg123 \
-    gstreamer1.0-plugins-ugly-asfdemux \
+    gstreamer1.0-plugins-ugly-asf \
+    gstreamer1.0-libav \
 "
