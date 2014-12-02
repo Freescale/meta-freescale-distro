@@ -15,5 +15,4 @@ RDEPENDS_${PN} = " \
     gstreamer1.0-plugins-good-meta \
     gstreamer1.0-plugins-bad-meta \
     ${@base_contains('LICENSE_FLAGS_WHITELIST', 'commercial', 'gstreamer1.0-plugins-ugly-meta', '', d)} \
-    ${@base_contains('LICENSE_FLAGS_WHITELIST', 'commercial', 'gstreamer1.0-libav', '', d)} \
 "
