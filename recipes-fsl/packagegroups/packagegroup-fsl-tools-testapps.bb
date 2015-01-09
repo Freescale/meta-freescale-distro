@@ -19,6 +19,7 @@ RDEPENDS_${PN} = " \
     evtest \
     e2fsprogs-mke2fs \
     fsl-rc-local \
+    fbset \
     i2c-tools \
     imx-test \
     iproute2 \
