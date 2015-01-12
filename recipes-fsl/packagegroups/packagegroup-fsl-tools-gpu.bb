@@ -1,8 +1,8 @@
 # Copyright (C) 2012-2014 Freescale Semiconductor
 # Released under the MIT license (see COPYING.MIT for the terms)
 
-DESCRIPTION = "Freescale's package group used to add the packages which provides GPU support."
-SUMMARY = "Freescale package group - tools/gpu"
+DESCRIPTION = "Package group used by FSL Community to add the packages which provide GPU support."
+SUMMARY = "FSL Community package group - tools/gpu"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3b58 \
                     file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
