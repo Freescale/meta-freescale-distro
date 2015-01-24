@@ -31,6 +31,7 @@ RDEPENDS_${PN} = " \
     ethtool \
     mtd-utils \
     mtd-utils-ubifs \
+    imx-gpu-viv-demos \
     ${@base_contains('DISTRO_FEATURES', 'x11', '', \
                       base_contains('DISTRO_FEATURES', 'wayland', \
                                     'weston weston-examples \
