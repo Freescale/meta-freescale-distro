@@ -44,7 +44,7 @@ GST_WAYLAND_PACKAGES = " \
 RDEPENDS_${PN}-base = " \
     gstreamer1.0 \
     gstreamer1.0-plugins-base-playback \
-    gstreamer1.0-plugins-base-alsa \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'gstreamer1.0-plugins-base-alsa', '', d)} \
     gstreamer1.0-plugins-base-audioconvert \
     gstreamer1.0-plugins-base-audioresample \
     gstreamer1.0-plugins-base-gio \
