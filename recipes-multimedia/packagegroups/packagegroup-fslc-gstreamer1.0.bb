@@ -53,10 +53,9 @@ RDEPENDS_${PN}-base = " \
     gstreamer1.0-plugins-base-videoscale \
     gstreamer1.0-plugins-base-volume \
     gstreamer1.0-plugins-good-autodetect \
-    ${@base_contains('DISTRO_FEATURES', 'x11', '${GST_X11_PACKAGES}', '', d)} \
-    ${@base_contains('DISTRO_FEATURES', 'x11', \
-                      base_contains('DISTRO_FEATURES', 'wayland', \
-                                    '', '${GST_WAYLAND_PACKAGES}', d), '', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', '${GST_X11_PACKAGES}', \
+                          bb.utils.contains('DISTRO_FEATURES', 'wayland', \
+                                            '${GST_WAYLAND_PACKAGES}', '', d), d)} \
 "
 
 # Basic audio plugins: parsers, demuxers, decoders
