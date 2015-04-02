@@ -19,8 +19,9 @@ SOC_TOOLS_GPU_mx6 = " \
     imx-gpu-viv-g2d \
     fsl-gpu-sdk \
     imx-gpu-viv-tools \
+    imx-gpu-viv-tools-apitrace \
     ${@base_contains('DISTRO_FEATURES', 'x11', \
-                    'imx-gpu-viv-tools-apitrace xserver-xorg-extension-viv-autohdmi', '', d)} \
+                     'xserver-xorg-extension-viv-autohdmi', '', d)} \
 "
 # FIXME: fsl-gpu-sdk is not supported for i.MX6 SoloLite due to lack of
 # OpenVG support and is intended to add in future release. 
