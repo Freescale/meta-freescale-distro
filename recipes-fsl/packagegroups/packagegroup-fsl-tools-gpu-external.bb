@@ -21,5 +21,6 @@ FB_TOOLS = " \
 "
 
 RDEPENDS_${PN} = " \
+    opencv-samples \
     ${@base_contains("DISTRO_FEATURES", "x11", "${X11_TOOLS}", "${FB_TOOLS}", d)} \
 "
