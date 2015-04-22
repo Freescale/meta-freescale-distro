@@ -13,8 +13,13 @@ inherit packagegroup
 X11_TOOLS = " \
     mesa-demos \
     glmark2 \
+    eglinfo-x11 \
+"
+
+FB_TOOLS = " \
+    eglinfo-fb \
 "
 
 RDEPENDS_${PN} = " \
-    ${@base_contains("DISTRO_FEATURES", "x11", "${X11_TOOLS}", "", d)} \
+    ${@base_contains("DISTRO_FEATURES", "x11", "${X11_TOOLS}", "${FB_TOOLS}", d)} \
 "
