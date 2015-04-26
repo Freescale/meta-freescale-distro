@@ -1,4 +1,5 @@
 # Copyright (C) 2012-2014 Freescale Semiconductor
+# Copyright (C) 2015 O.S. Systems Software LTDA.
 # Released under the MIT license (see COPYING.MIT for the terms)
 
 DESCRIPTION = "Packagegroup used by FSL Community to provide a set of packages and utilities \
@@ -8,9 +9,19 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3b58 \
                     file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
-PACKAGE_ARCH_mx6 = "${MACHINE_ARCH}"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit packagegroup
+
+SOC_TOOLS_TEST = ""
+SOC_TOOLS_TEST_vf  = "imx-test"
+SOC_TOOLS_TEST_mxs = "imx-test"
+SOC_TOOLS_TEST_mx3 = "imx-test"
+SOC_TOOLS_TEST_mx5 = "imx-test"
+SOC_TOOLS_TEST_mx6 = " \
+    imx-test \
+    imx-gpu-viv-demos \
+"
 
 RDEPENDS_${PN} = " \
     alsa-utils \
@@ -21,7 +32,6 @@ RDEPENDS_${PN} = " \
     fsl-rc-local \
     fbset \
     i2c-tools \
-    imx-test \
     iproute2 \
     memtester \
     python-subprocess \
@@ -35,9 +45,8 @@ RDEPENDS_${PN} = " \
                       base_contains('DISTRO_FEATURES', 'wayland', \
                                     'weston weston-examples \
                                      gtk+3-demo clutter-1.0-examples', '', d), d)} \
+    ${SOC_TOOLS_TEST} \
 "
-
-RDEPENDS_${PN}_append_mx6 = " imx-gpu-viv-demos"
 
 # FIXME: i.MX6SL cannot use mesa for Graphics and it lacks GL support,
 #        so for now we skip it.
