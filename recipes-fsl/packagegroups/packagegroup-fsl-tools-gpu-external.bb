@@ -21,6 +21,6 @@ FB_TOOLS = " \
 "
 
 RDEPENDS_${PN} = " \
-    opencv-samples \
+    ${@base_contains("LICENSE_FLAGS_WHITELIST", "commercial", "opencv-samples", "", d)} \
     ${@base_contains("DISTRO_FEATURES", "x11", "${X11_TOOLS}", "${FB_TOOLS}", d)} \
 "
