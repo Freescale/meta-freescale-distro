@@ -15,12 +15,14 @@ SOC_GPU_TOOLS_X11 = " \
     mesa-demos \
     glmark2 \
 "
-SOC_GPU_TOOLS_X11_append_mx6 = " \
-    eglinfo-x11 \
-"
+SOC_GPU_TOOLS_X11_append_mx6q  = " eglinfo-x11"
+SOC_GPU_TOOLS_X11_append_mx6dl = " eglinfo-x11"
+SOC_GPU_TOOLS_X11_append_mx6sx = " eglinfo-x11"
 
 SOC_GPU_TOOLS_FB = ""
-SOC_GPU_TOOLS_FB_mx6 = "eglinfo-fb"
+SOC_GPU_TOOLS_FB_mx6q  = "eglinfo-fb"
+SOC_GPU_TOOLS_FB_mx6dl = "eglinfo-fb"
+SOC_GPU_TOOLS_FB_mx6sx = "eglinfo-fb"
 
 RDEPENDS_${PN} = " \
     ${@base_contains("LICENSE_FLAGS_WHITELIST", "commercial", "opencv-samples", "", d)} \
