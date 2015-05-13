@@ -20,3 +20,5 @@ CORE_IMAGE_EXTRA_INSTALL += " \
                                     'weston weston-init weston-examples \
                                          gtk+3-demo clutter-1.0-examples', '', d), d)} \
 "
+
+CORE_IMAGE_EXTRA_INSTALL_remove_mx6sl = "clutter-1.0-examples"
