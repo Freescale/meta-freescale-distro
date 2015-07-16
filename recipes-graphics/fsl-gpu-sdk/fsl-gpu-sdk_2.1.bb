@@ -1,7 +1,7 @@
 SUMMARY = "Freescale GPU SDK Samples"
 DESCRIPTION = "Set of sample applications for Freescale GPU"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://COPYING;md5=cf7b2a944fc10cd1e2471a89ea6b7585"
+LIC_FILES_CHKSUM = "file://COPYING;md5=01ba08a2b77c3a0a9d0ab5d4d83fed64"
 DEPENDS = "${X11_DEPENDS} ${WL_DEPENDS} ${DFB_DEPENDS}"
 DEPENDS_append_mx6q = " virtual/libgles2"
 DEPENDS_append_mx6dl = " virtual/libgles2"
@@ -20,8 +20,8 @@ RCONFLICTS_${PN} = "vivante-gpu-sdk"
 
 SRC_URI = "${FSL_MIRROR}/${PN}-${PV}.bin;fsl-eula=true"
 
-SRC_URI[md5sum] = "c74bba9bfcaf6cb2448c42bb4f597181"
-SRC_URI[sha256sum] = "8bee7fedc91e054713742d949d749195b6e0cfa3479c1b0168e588a4104d47a9"
+SRC_URI[md5sum] = "8f656b8a3a7b7390f434ec1cebf66334"
+SRC_URI[sha256sum] = "eccfd6f412c256e92e61d811cbe607e77bdfd13e268f4840b819e32dcd92921e"
 
 BACKEND = "${@base_contains('DISTRO_FEATURES', 'x11', 'X11', \
                     base_contains('DISTRO_FEATURES', 'wayland', 'Wayland', \
