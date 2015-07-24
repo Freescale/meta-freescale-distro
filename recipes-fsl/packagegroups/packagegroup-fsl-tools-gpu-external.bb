@@ -27,6 +27,9 @@ SOC_GPU_TOOLS_FB_mx6dl = "eglinfo-fb"
 SOC_GPU_TOOLS_FB_mx6sx = "eglinfo-fb"
 
 SOC_GPU_TOOLS_WAYLAND = ""
+SOC_GPU_TOOLS_WAYLAND_mx6q  = "glmark2"
+SOC_GPU_TOOLS_WAYLAND_mx6dl = "glmark2"
+SOC_GPU_TOOLS_WAYLAND_mx6sx = "glmark2"
 
 SOC_GPU_TOOLS_DIRECTFB = ""
 
