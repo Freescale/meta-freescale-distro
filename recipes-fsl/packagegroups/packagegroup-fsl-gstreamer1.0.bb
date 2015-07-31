@@ -53,6 +53,8 @@ RDEPENDS_${PN}-base = " \
     gstreamer1.0-plugins-base-volume \
     gstreamer1.0-plugins-good-autodetect \
     ${MACHINE_GSTREAMER_1_0_PLUGIN} \
+    ${@bb.utils.contains("MACHINE_GSTREAMER_1_0_PLUGIN", "gst1.0-fsl-plugin", "gst1.0-fsl-plugin-gplay", "", d)} \
+    ${@bb.utils.contains("MACHINE_GSTREAMER_1_0_PLUGIN", "gst1.0-fsl-plugin", "gst1.0-fsl-plugin-grecorder", "", d)} \
 "
 
 RRECOMMENDS_${PN}-base = " \
