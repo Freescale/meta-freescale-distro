@@ -26,7 +26,6 @@ RDEPENDS_${PN} = " \
     ${PN}-video \
     ${PN}-network-base \
     ${PN}-debug \
-    ${MACHINE_GSTREAMER_1_0_PLUGIN} \
 "
 
 # List of X11 specific plugins
@@ -53,6 +52,7 @@ RDEPENDS_${PN}-base = " \
     gstreamer1.0-plugins-base-videoscale \
     gstreamer1.0-plugins-base-volume \
     gstreamer1.0-plugins-good-autodetect \
+    ${MACHINE_GSTREAMER_1_0_PLUGIN} \
 "
 
 RRECOMMENDS_${PN}-base = " \
