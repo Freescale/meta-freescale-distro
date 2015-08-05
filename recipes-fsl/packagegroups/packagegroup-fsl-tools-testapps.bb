@@ -15,9 +15,6 @@ inherit packagegroup
 
 SOC_TOOLS_TEST = ""
 SOC_TOOLS_TEST_vf  = "imx-test"
-SOC_TOOLS_TEST_mxs = "imx-test"
-SOC_TOOLS_TEST_mx3 = "imx-test"
-SOC_TOOLS_TEST_mx5 = "imx-test"
 SOC_TOOLS_TEST_mx6 = " \
     imx-test \
     imx-gpu-viv-demos \
