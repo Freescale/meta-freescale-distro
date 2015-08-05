@@ -15,10 +15,11 @@ inherit packagegroup
 
 SOC_TOOLS_TEST = ""
 SOC_TOOLS_TEST_vf  = "imx-test"
-SOC_TOOLS_TEST_mx6 = " \
-    imx-test \
-    imx-gpu-viv-demos \
-"
+SOC_TOOLS_TEST_mx6 = "imx-test"
+SOC_TOOLS_TEST_append_mx6q  = " imx-gpu-viv-demos"
+SOC_TOOLS_TEST_append_mx6dl = " imx-gpu-viv-demos"
+SOC_TOOLS_TEST_append_mx6sx = " imx-gpu-viv-demos"
+SOC_TOOLS_TEST_append_mx6sl = " imx-gpu-viv-demos"
 
 RDEPENDS_${PN} = " \
     alsa-utils \
