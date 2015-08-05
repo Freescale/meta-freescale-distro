@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=GLCubes Demo
-Exec=/usr/bin/cubes_demo_x11
-Icon=glcubes-ico
-Terminal=false
-Type=Application
-X-MB-SingleInstance=true
-Comment=GLCubes Demo
-StartupNotify=false
