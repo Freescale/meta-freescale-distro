@@ -12,9 +12,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 
 SOC_TOOLS_GPU = ""
-SOC_TOOLS_GPU_mx5 = " \
-    ${@base_contains('DISTRO_FEATURES', 'x11', 'amd-gpu-x11-bin-mx51', 'amd-gpu-bin-mx51', d)} \
-"
 SOC_TOOLS_GPU_mx6 = " \
     imx-gpu-viv-g2d \
     fsl-gpu-sdk \
