@@ -9,8 +9,8 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3
 inherit packagegroup
 
 RDEPENDS_${PN} = " \
-    packagegroup-fslc-gstreamer1.0 \
-    ${@base_contains('LICENSE_FLAGS_WHITELIST', 'commercial', 'packagegroup-fslc-gstreamer1.0-commercial', '', d)} \
+    packagegroup-fsl-gstreamer1.0 \
+    ${@base_contains('LICENSE_FLAGS_WHITELIST', 'commercial', 'packagegroup-fsl-gstreamer1.0-commercial', '', d)} \
     gstreamer1.0-plugins-base-meta \
     gstreamer1.0-plugins-good-meta \
     gstreamer1.0-plugins-bad-meta \

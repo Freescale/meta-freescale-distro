@@ -12,7 +12,7 @@ inherit core-image
 
 CORE_IMAGE_EXTRA_INSTALL += " \
     packagegroup-fsl-tools-gpu \
-    packagegroup-fslc-gstreamer1.0 \
+    packagegroup-fsl-gstreamer1.0 \
     ${@base_contains('DISTRO_FEATURES', 'directfb', 'packagegroup-core-directfb', '', d)} \
     ${@base_contains('DISTRO_FEATURES', 'x11', '', \
                       base_contains('DISTRO_FEATURES', 'wayland', \

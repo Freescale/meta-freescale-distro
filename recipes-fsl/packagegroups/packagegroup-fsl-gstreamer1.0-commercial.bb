@@ -10,7 +10,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3
 inherit packagegroup
 
 RDEPENDS_${PN} = " \
-    packagegroup-fslc-gstreamer1.0 \
+    packagegroup-fsl-gstreamer1.0 \
 "
 
 # Plugins from the -ugly collection which require the "commercial" flag in LICENSE_FLAGS_WHITELIST to be set

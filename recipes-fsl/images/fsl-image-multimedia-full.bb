@@ -4,5 +4,5 @@
 require fsl-image-multimedia.bb
 
 CORE_IMAGE_EXTRA_INSTALL += " \
-    packagegroup-fslc-gstreamer1.0-full \
+    packagegroup-fsl-gstreamer1.0-full \
 "
