@@ -39,10 +39,10 @@ RDEPENDS_${PN} = " \
     ethtool \
     mtd-utils \
     mtd-utils-ubifs \
-    ${@base_contains('DISTRO_FEATURES', 'x11', '', \
+    ${@base_contains('DISTRO_FEATURES', 'x11', 'gtk+3-demo', \
                       base_contains('DISTRO_FEATURES', 'wayland', \
                                     'weston weston-examples \
-                                     gtk+3-demo clutter-1.0-examples', '', d), d)} \
+                                     clutter-1.0-examples', '', d), d)} \
     ${SOC_TOOLS_TEST} \
 "
 
