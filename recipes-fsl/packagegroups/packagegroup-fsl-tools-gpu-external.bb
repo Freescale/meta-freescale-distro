@@ -33,13 +33,10 @@ SOC_GPU_TOOLS_WAYLAND_mx6q  = "glmark2"
 SOC_GPU_TOOLS_WAYLAND_mx6dl = "glmark2"
 SOC_GPU_TOOLS_WAYLAND_mx6sx = "glmark2"
 
-SOC_GPU_TOOLS_DIRECTFB = ""
-
 RDEPENDS_${PN} = " \
     opencv-apps \
     opencv-samples \
     ${@base_contains("DISTRO_FEATURES", "x11", "${SOC_GPU_TOOLS_X11}", \
         base_contains("DISTRO_FEATURES", "wayland", "${SOC_GPU_TOOLS_WAYLAND}", \
-            base_contains("DISTRO_FEATURES", "directfb", "${SOC_GPU_TOOLS_DIRECTFB}", \
-                 "${SOC_GPU_TOOLS_FB}", d), d), d)} \
+                 "${SOC_GPU_TOOLS_FB}", d), d)} \
 "
