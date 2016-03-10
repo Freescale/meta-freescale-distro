@@ -1,5 +1,5 @@
 # Copyright (C) 2014 Freescale Semiconductor
-# Copyright (C) 2015 O.S. Systems Software LTDA.
+# Copyright (C) 2015, 2016 O.S. Systems Software LTDA.
 # Released under the MIT license (see COPYING.MIT for the terms)
 DESCRIPTION = "Package group used by FSL Community to provide graphic packages used \
 to test the several hardware accelerated graphics APIs including packages not \
@@ -34,8 +34,6 @@ SOC_GPU_TOOLS_WAYLAND_mx6dl = "glmark2"
 SOC_GPU_TOOLS_WAYLAND_mx6sx = "glmark2"
 
 RDEPENDS_${PN} = " \
-    opencv-apps \
-    opencv-samples \
     ${@base_contains("DISTRO_FEATURES", "x11", "${SOC_GPU_TOOLS_X11}", \
         base_contains("DISTRO_FEATURES", "wayland", "${SOC_GPU_TOOLS_WAYLAND}", \
                  "${SOC_GPU_TOOLS_FB}", d), d)} \
