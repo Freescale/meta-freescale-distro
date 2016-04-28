@@ -1,4 +1,4 @@
-# Copyright (C) 2012-2014 Freescale Semiconductor
+# Copyright (C) 2012-2016 Freescale Semiconductor
 # Released under the MIT license (see COPYING.MIT for the terms)
 
 DESCRIPTION = "Package group used by FSL Community to provide a set of benchmark applications."
@@ -17,7 +17,7 @@ RDEPENDS_${PN} = " \
     dbench \
     fio \
     iozone3 \
-    iperf \
+    iperf3 \
     nbench-byte \
     tiobench \
     ${@bb.utils.contains('TUNE_FEATURES', 'neon', 'cpuburn-neon', '', d)} \
