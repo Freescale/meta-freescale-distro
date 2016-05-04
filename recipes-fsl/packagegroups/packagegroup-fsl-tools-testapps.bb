@@ -35,12 +35,12 @@ RDEPENDS_${PN} = " \
     python-subprocess \
     python-datetime \
     python-json \
-    ${@base_contains('DISTRO_FEATURES', 'x11', 'v4l-utils', '', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'v4l-utils', '', d)} \
     ethtool \
     mtd-utils \
     mtd-utils-ubifs \
-    ${@base_contains('DISTRO_FEATURES', 'x11', 'gtk+3-demo', \
-                      base_contains('DISTRO_FEATURES', 'wayland', \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'gtk+3-demo', \
+                      bb.utils.contains('DISTRO_FEATURES', 'wayland', \
                                     'weston weston-examples \
                                      clutter-1.0-examples', '', d), d)} \
     ${SOC_TOOLS_TEST} \
