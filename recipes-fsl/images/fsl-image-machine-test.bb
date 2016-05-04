@@ -3,7 +3,7 @@ Freescale's multimedia packages (VPU and GPU) when available, and \
 test and benchmark applications."
 
 IMAGE_FEATURES += " \
-    ${@base_contains('DISTRO_FEATURES', 'x11', 'x11-base', '', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11-base', '', d)} \
     debug-tweaks \
     tools-testapps \
     tools-profile \
@@ -20,7 +20,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     packagegroup-fsl-tools-gpu-external \
     packagegroup-fsl-tools-testapps \
     packagegroup-fsl-tools-benchmark \
-    ${@base_contains('DISTRO_FEATURES', 'x11', '', \
-                      base_contains('DISTRO_FEATURES', 'wayland', 'weston-init', \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', \
+                      bb.utils.contains('DISTRO_FEATURES', 'wayland', 'weston-init', \
                                     '', d), d)} \
 "
