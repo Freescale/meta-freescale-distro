@@ -34,7 +34,7 @@ SOC_GPU_TOOLS_WAYLAND_mx6dl = "glmark2"
 SOC_GPU_TOOLS_WAYLAND_mx6sx = "glmark2"
 
 RDEPENDS_${PN} = " \
-    ${@base_contains("DISTRO_FEATURES", "x11", "${SOC_GPU_TOOLS_X11}", \
-        base_contains("DISTRO_FEATURES", "wayland", "${SOC_GPU_TOOLS_WAYLAND}", \
+    ${@bb.utils.contains("DISTRO_FEATURES", "x11", "${SOC_GPU_TOOLS_X11}", \
+        bb.utils.contains("DISTRO_FEATURES", "wayland", "${SOC_GPU_TOOLS_WAYLAND}", \
                  "${SOC_GPU_TOOLS_FB}", d), d)} \
 "
