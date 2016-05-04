@@ -19,7 +19,7 @@ SOC_TOOLS_GPU_IMX6QDLSX = " \
     fsl-gpu-sdk \
     imx-gpu-viv-tools \
     imx-gpu-viv-tools-apitrace \
-    ${@base_contains('DISTRO_FEATURES', 'x11', \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', \
                      'xserver-xorg-extension-viv-autohdmi', '', d)} \
 "
 SOC_TOOLS_GPU_mx6q  = "${SOC_TOOLS_GPU_IMX6QDLSX}"
@@ -32,7 +32,7 @@ SOC_TOOLS_GPU_mx6sx = "${SOC_TOOLS_GPU_IMX6QDLSX}"
 SOC_TOOLS_GPU_mx6sl = " \
     imx-gpu-viv-g2d \
     imx-gpu-viv-tools \
-    ${@base_contains('DISTRO_FEATURES', 'x11', \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', \
                      'xserver-xorg-extension-viv-autohdmi', '', d)} \
 "
 
