@@ -1,13 +1,10 @@
 # Copyright (C) 2012-2014 Freescale Semiconductor
-# Copyright (C) 2015 O.S. Systems Software LTDA.
+# Copyright (C) 2015, 2016 O.S. Systems Software LTDA.
 # Released under the MIT license (see COPYING.MIT for the terms)
 
 DESCRIPTION = "Packagegroup used by FSL Community to provide a set of packages and utilities \
 for hardware test."
 SUMMARY = "FSL Community packagegroup - tools/testapps"
-LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3b58 \
-                    file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
