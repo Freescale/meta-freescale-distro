@@ -19,6 +19,7 @@ RREPLACES_${PN} = "vivante-gpu-sdk"
 RCONFLICTS_${PN} = "vivante-gpu-sdk"
 
 SRC_URI = "${FSL_MIRROR}/${PN}-${PV}.bin;fsl-eula=true \
+           file://Add-missing-cmath-include.patch \
 "
 
 SRC_URI[md5sum] = "79b40d39f9f2e49931b90083478a9270"

@@ -1,0 +1,228 @@
+From 8ac2feb17bd8a170d62f3abe9451a8f066003961 Mon Sep 17 00:00:00 2001
+From: Otavio Salvador <otavio@ossystems.com.br>
+Date: Thu, 19 May 2016 17:13:18 +0000
+Subject: [PATCH] Add missing 'cmath' include
+Organization: O.S. Systems Software LTDA.
+
+The header declares a set of functions to compute common mathematical
+operations and transformations which was missing in a number of files.
+
+It has been identified when testing the GCC 6.1 compiler.
+
+Upstream-Status: Pending
+
+Signed-off-by: Otavio Salvador <otavio@ossystems.com.br>
+---
+ DemoApps/GLES2/Blur/source/GausianHelper.cpp                             | 1 +
+ DemoApps/GLES2/FractalShader/source/FractalShaderMandelbrot.cpp          | 1 +
+ DemoApps/GLES2/T3DStressTest/source/T3DStressTest.cpp                    | 1 +
+ DemoApps/GLES3/E3_0_InstancingSimple/source/E3_0_InstancingSimple.cpp    | 1 +
+ DemoApps/GLES3/FractalShader/source/FractalShaderMandelbrot.cpp          | 1 +
+ DemoApps/GLES3/FurShellRendering/source/FurShellRendering.cpp            | 1 +
+ DemoApps/GLES3/FurShellRendering/source/FurTexture.cpp                   | 1 +
+ DemoApps/GLES3/T3DStressTest/source/T3DStressTest.cpp                    | 1 +
+ DemoApps/OpenVG/BitmapFont/source/BitmapFont.cpp                         | 1 +
+ .../DFGraphicsBasic2DShared/source/DFGraphicsBasic2DShared/Shared.cpp    | 1 +
+ .../source/DFNativeBatch2DShared/TextureAtlasScene.cpp                   | 1 +
+ .../source/EnvironmentMappingShared/SphereMeshCreator.cpp                | 1 +
+ .../FractalShaderShared/source/FractalShaderShared/JuliaHelper.cpp       | 1 +
+ .../Shared/FractalShaderShared/source/FractalShaderShared/ShaderUtil.cpp | 1 +
+ DemoFramework/FslDemoHost/source/FslDemoHost/DemoAppProfilerOverlay.cpp  | 1 +
+ .../source/FslGraphics_Draft/Procedural/TorusGenerator.cpp               | 1 +
+ 16 files changed, 16 insertions(+)
+
+diff --git a/DemoApps/GLES2/Blur/source/GausianHelper.cpp b/DemoApps/GLES2/Blur/source/GausianHelper.cpp
+index 805596e..ee57e0e 100644
+--- a/DemoApps/GLES2/Blur/source/GausianHelper.cpp
++++ b/DemoApps/GLES2/Blur/source/GausianHelper.cpp
+@@ -38,6 +38,7 @@
+ #include <iomanip>
+ #include <sstream>
+ #include <cassert>
++#include <cmath>
+ 
+ namespace Fsl
+ {
+diff --git a/DemoApps/GLES2/FractalShader/source/FractalShaderMandelbrot.cpp b/DemoApps/GLES2/FractalShader/source/FractalShaderMandelbrot.cpp
+index bcb4860..3d29a2b 100644
+--- a/DemoApps/GLES2/FractalShader/source/FractalShaderMandelbrot.cpp
++++ b/DemoApps/GLES2/FractalShader/source/FractalShaderMandelbrot.cpp
+@@ -40,6 +40,7 @@
+ #include <GLES2/gl2.h>
+ #include <iostream>
+ #include <string>
++#include <cmath>
+ 
+ namespace Fsl
+ {
+diff --git a/DemoApps/GLES2/T3DStressTest/source/T3DStressTest.cpp b/DemoApps/GLES2/T3DStressTest/source/T3DStressTest.cpp
+index 6fefdb2..cb55aa2 100644
+--- a/DemoApps/GLES2/T3DStressTest/source/T3DStressTest.cpp
++++ b/DemoApps/GLES2/T3DStressTest/source/T3DStressTest.cpp
+@@ -43,6 +43,7 @@
+ #include <GLES2/gl2.h>
+ #include <algorithm>
+ #include <ctime>
++#include <cmath>
+ #include <iostream>
+ #include "FurTexture.hpp"
+ #include "Shader/ShaderBase.hpp"
+diff --git a/DemoApps/GLES3/E3_0_InstancingSimple/source/E3_0_InstancingSimple.cpp b/DemoApps/GLES3/E3_0_InstancingSimple/source/E3_0_InstancingSimple.cpp
+index 2379d6f..0cd85d5 100644
+--- a/DemoApps/GLES3/E3_0_InstancingSimple/source/E3_0_InstancingSimple.cpp
++++ b/DemoApps/GLES3/E3_0_InstancingSimple/source/E3_0_InstancingSimple.cpp
+@@ -50,6 +50,7 @@
+ #include <iostream>
+ #include <cassert>
+ #include <cstring>
++#include <cmath>
+ #include <vector>
+ 
+ //Defines needed for Instancing
+diff --git a/DemoApps/GLES3/FractalShader/source/FractalShaderMandelbrot.cpp b/DemoApps/GLES3/FractalShader/source/FractalShaderMandelbrot.cpp
+index 8f5b3ba..0bc0f26 100644
+--- a/DemoApps/GLES3/FractalShader/source/FractalShaderMandelbrot.cpp
++++ b/DemoApps/GLES3/FractalShader/source/FractalShaderMandelbrot.cpp
+@@ -40,6 +40,7 @@
+ #include <GLES3/gl3.h>
+ #include <iostream>
+ #include <string>
++#include <cmath>
+ 
+ namespace Fsl
+ {
+diff --git a/DemoApps/GLES3/FurShellRendering/source/FurShellRendering.cpp b/DemoApps/GLES3/FurShellRendering/source/FurShellRendering.cpp
+index 1ebacff..df50c6e 100644
+--- a/DemoApps/GLES3/FurShellRendering/source/FurShellRendering.cpp
++++ b/DemoApps/GLES3/FurShellRendering/source/FurShellRendering.cpp
+@@ -50,6 +50,7 @@
+ #include "Shader/ShaderBase.hpp"
+ #include <GLES3/gl3.h>
+ #include <iostream>
++#include <cmath>
+ #include "MainAtlas.hpp"
+ 
+ namespace Fsl
+diff --git a/DemoApps/GLES3/FurShellRendering/source/FurTexture.cpp b/DemoApps/GLES3/FurShellRendering/source/FurTexture.cpp
+index ba1d5d9..ad28f14 100644
+--- a/DemoApps/GLES3/FurShellRendering/source/FurTexture.cpp
++++ b/DemoApps/GLES3/FurShellRendering/source/FurTexture.cpp
+@@ -35,6 +35,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <time.h>
++#include <cmath>
+ 
+ #include <FslBase/Math/Matrix.hpp>
+ #include <FslBase/Math/Vector2.hpp>
+diff --git a/DemoApps/GLES3/T3DStressTest/source/T3DStressTest.cpp b/DemoApps/GLES3/T3DStressTest/source/T3DStressTest.cpp
+index 52858fd..7e6c4a0 100644
+--- a/DemoApps/GLES3/T3DStressTest/source/T3DStressTest.cpp
++++ b/DemoApps/GLES3/T3DStressTest/source/T3DStressTest.cpp
+@@ -43,6 +43,7 @@
+ #include <GLES3/gl3.h>
+ #include <algorithm>
+ #include <ctime>
++#include <cmath>
+ #include <iostream>
+ #include "FurTexture.hpp"
+ #include "Shader/ShaderBase.hpp"
+diff --git a/DemoApps/OpenVG/BitmapFont/source/BitmapFont.cpp b/DemoApps/OpenVG/BitmapFont/source/BitmapFont.cpp
+index 52ba0fb..a0fb2cf 100644
+--- a/DemoApps/OpenVG/BitmapFont/source/BitmapFont.cpp
++++ b/DemoApps/OpenVG/BitmapFont/source/BitmapFont.cpp
+@@ -36,6 +36,7 @@
+ #include <VG/openvg.h>
+ #include <iostream>
+ #include <cassert>
++#include <cmath>
+ 
+ namespace Fsl
+ {
+diff --git a/DemoApps/Shared/DFGraphicsBasic2DShared/source/DFGraphicsBasic2DShared/Shared.cpp b/DemoApps/Shared/DFGraphicsBasic2DShared/source/DFGraphicsBasic2DShared/Shared.cpp
+index 2220383..aa60ef1 100644
+--- a/DemoApps/Shared/DFGraphicsBasic2DShared/source/DFGraphicsBasic2DShared/Shared.cpp
++++ b/DemoApps/Shared/DFGraphicsBasic2DShared/source/DFGraphicsBasic2DShared/Shared.cpp
+@@ -35,6 +35,7 @@
+ #include <FslBase/Math/MathHelper.hpp>
+ #include <sstream>
+ #include <cassert>
++#include <cmath>
+ 
+ namespace Fsl
+ {
+diff --git a/DemoApps/Shared/DFNativeBatch2DShared/source/DFNativeBatch2DShared/TextureAtlasScene.cpp b/DemoApps/Shared/DFNativeBatch2DShared/source/DFNativeBatch2DShared/TextureAtlasScene.cpp
+index 5af17c2..ebc1c19 100644
+--- a/DemoApps/Shared/DFNativeBatch2DShared/source/DFNativeBatch2DShared/TextureAtlasScene.cpp
++++ b/DemoApps/Shared/DFNativeBatch2DShared/source/DFNativeBatch2DShared/TextureAtlasScene.cpp
+@@ -39,6 +39,7 @@
+ #include <FslGraphics/Bitmap.hpp>
+ #include <FslGraphics/Color.hpp>
+ #include <algorithm>
++#include <cmath>
+ #include <FslGraphics/TextureAtlas/TextureAtlasHelper.hpp>
+ #include <DFNativeBatch2DShared/MainAtlas.hpp>
+ 
+diff --git a/DemoApps/Shared/EnvironmentMappingShared/source/EnvironmentMappingShared/SphereMeshCreator.cpp b/DemoApps/Shared/EnvironmentMappingShared/source/EnvironmentMappingShared/SphereMeshCreator.cpp
+index 213ac4f..9364a5b 100644
+--- a/DemoApps/Shared/EnvironmentMappingShared/source/EnvironmentMappingShared/SphereMeshCreator.cpp
++++ b/DemoApps/Shared/EnvironmentMappingShared/source/EnvironmentMappingShared/SphereMeshCreator.cpp
+@@ -32,6 +32,7 @@
+ #include <EnvironmentMappingShared/SphereMeshCreator.hpp>
+ #include <FslBase/Math/MathHelper.hpp>
+ #include <cassert>
++#include <cmath>
+ 
+ namespace Fsl
+ {
+diff --git a/DemoApps/Shared/FractalShaderShared/source/FractalShaderShared/JuliaHelper.cpp b/DemoApps/Shared/FractalShaderShared/source/FractalShaderShared/JuliaHelper.cpp
+index 479b95c..6936e2f 100644
+--- a/DemoApps/Shared/FractalShaderShared/source/FractalShaderShared/JuliaHelper.cpp
++++ b/DemoApps/Shared/FractalShaderShared/source/FractalShaderShared/JuliaHelper.cpp
+@@ -39,6 +39,7 @@
+ #include <FslGraphics/Bitmap.hpp>
+ #include <FslGraphics/Color.hpp>
+ #include <algorithm>
++#include <cmath>
+ #include <FslGraphics/TextureAtlas/TextureAtlasHelper.hpp>
+ #include "MainAtlas.hpp"
+ 
+diff --git a/DemoApps/Shared/FractalShaderShared/source/FractalShaderShared/ShaderUtil.cpp b/DemoApps/Shared/FractalShaderShared/source/FractalShaderShared/ShaderUtil.cpp
+index 133432f..16a9921 100644
+--- a/DemoApps/Shared/FractalShaderShared/source/FractalShaderShared/ShaderUtil.cpp
++++ b/DemoApps/Shared/FractalShaderShared/source/FractalShaderShared/ShaderUtil.cpp
+@@ -33,6 +33,7 @@
+ #include <FslBase/String/StringUtil.hpp>
+ #include <algorithm>
+ #include <sstream>
++#include <cmath>
+ 
+ namespace Fsl
+ {
+diff --git a/DemoFramework/FslDemoHost/source/FslDemoHost/DemoAppProfilerOverlay.cpp b/DemoFramework/FslDemoHost/source/FslDemoHost/DemoAppProfilerOverlay.cpp
+index 80c4c8a..19fe6ab 100644
+--- a/DemoFramework/FslDemoHost/source/FslDemoHost/DemoAppProfilerOverlay.cpp
++++ b/DemoFramework/FslDemoHost/source/FslDemoHost/DemoAppProfilerOverlay.cpp
+@@ -37,6 +37,7 @@
+ #include <FslDemoApp/Service/Graphics/Basic2D.hpp>
+ #include <FslDemoApp/Service/Graphics/IGraphicsService.hpp>
+ #include <FslDemoApp/Service/Profiler/IProfilerService.hpp>
++#include <cmath>
+ #include <cassert>
+ #include <cstdio>
+ #include <cstring>
+diff --git a/DemoFramework/FslGraphics_Draft/source/FslGraphics_Draft/Procedural/TorusGenerator.cpp b/DemoFramework/FslGraphics_Draft/source/FslGraphics_Draft/Procedural/TorusGenerator.cpp
+index 7eafc05..df6718d 100644
+--- a/DemoFramework/FslGraphics_Draft/source/FslGraphics_Draft/Procedural/TorusGenerator.cpp
++++ b/DemoFramework/FslGraphics_Draft/source/FslGraphics_Draft/Procedural/TorusGenerator.cpp
+@@ -32,6 +32,7 @@
+ #include <FslGraphics_Draft/Procedural/TorusGenerator.hpp>
+ #include <FslBase/Math/Vector2.hpp>
+ #include <FslBase/Math/MathHelper.hpp>
++#include <cmath>
+ #include <cassert>
+ #include <cstdlib>
+ 
+-- 
+2.1.4
+
