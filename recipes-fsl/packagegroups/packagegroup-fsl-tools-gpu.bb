@@ -1,4 +1,4 @@
-# Copyright (C) 2012-2014 Freescale Semiconductor
+# Copyright (C) 2012-2014, 2016 Freescale Semiconductor
 # Copyright (C) 2015, 2016 O.S. Systems Software LTDA.
 # Released under the MIT license (see COPYING.MIT for the terms)
 
@@ -16,8 +16,9 @@ SOC_TOOLS_GPU_IMX6QDLSX = " \
     fsl-gpu-sdk \
     imx-gpu-viv-tools \
     imx-gpu-viv-tools-apitrace \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', \
-                     'xserver-xorg-extension-viv-autohdmi', '', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', '', \
+       bb.utils.contains('DISTRO_FEATURES',     'x11', 'xserver-xorg-extension-viv-autohdmi', \
+                                                       '', d), d)} \
 "
 SOC_TOOLS_GPU_mx6q  = "${SOC_TOOLS_GPU_IMX6QDLSX}"
 SOC_TOOLS_GPU_mx6dl = "${SOC_TOOLS_GPU_IMX6QDLSX}"
@@ -29,8 +30,9 @@ SOC_TOOLS_GPU_mx6sx = "${SOC_TOOLS_GPU_IMX6QDLSX}"
 SOC_TOOLS_GPU_mx6sl = " \
     imx-gpu-viv-g2d \
     imx-gpu-viv-tools \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', \
-                     'xserver-xorg-extension-viv-autohdmi', '', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', '', \
+       bb.utils.contains('DISTRO_FEATURES',     'x11', 'xserver-xorg-extension-viv-autohdmi', \
+                                                       '', d), d)} \
 "
 
 RDEPENDS_${PN} = " \
