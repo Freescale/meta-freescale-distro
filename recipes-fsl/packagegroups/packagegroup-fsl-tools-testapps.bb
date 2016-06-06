@@ -1,4 +1,4 @@
-# Copyright (C) 2012-2014 Freescale Semiconductor
+# Copyright (C) 2012-2014, 2016 Freescale Semiconductor
 # Copyright (C) 2015, 2016 O.S. Systems Software LTDA.
 # Released under the MIT license (see COPYING.MIT for the terms)
 
@@ -36,10 +36,9 @@ RDEPENDS_${PN} = " \
     ethtool \
     mtd-utils \
     mtd-utils-ubifs \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'gtk+3-demo', \
-                      bb.utils.contains('DISTRO_FEATURES', 'wayland', \
-                                    'weston weston-examples \
-                                     clutter-1.0-examples', '', d), d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'gtk+3-demo', '', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', \
+                         'weston-examples clutter-1.0-examples', '', d)} \
     ${SOC_TOOLS_TEST} \
 "
 
