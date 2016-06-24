@@ -15,6 +15,7 @@ inherit core-image
 CORE_IMAGE_EXTRA_INSTALL += " \
     packagegroup-fsl-tools-gpu \
     packagegroup-fsl-gstreamer1.0 \
+    packagegroup-imx-tools-audio \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', \
                          'weston weston-init weston-examples \
                           gtk+3-demo clutter-1.0-examples', '', d)} \
