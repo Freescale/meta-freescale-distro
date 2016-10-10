@@ -13,7 +13,7 @@ SOC_TOOLS_GPU = ""
 
 SOC_TOOLS_GPU_IMX6QDLSX = " \
     imx-gpu-viv-g2d \
-    fsl-gpu-sdk \
+    imx-gpu-sdk \
     imx-gpu-viv-tools \
     imx-gpu-viv-tools-apitrace \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', '', \
