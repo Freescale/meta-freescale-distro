@@ -1,8 +1,8 @@
-SUMMARY = "Freescale GPU SDK Samples"
-DESCRIPTION = "Set of sample applications for Freescale GPU"
+SUMMARY = "i.MX GPU SDK Samples"
+DESCRIPTION = "Set of sample applications for i.MX GPU"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://COPYING;md5=8cf95184c220e247b9917e7244124c5a"
-DEPENDS = "${X11_DEPENDS} ${WL_DEPENDS} devil gstreamer1.0 gstreamer1.0-plugins-base"
+LIC_FILES_CHKSUM = "file://COPYING;md5=d4f548f93b5fe0ee2bc86758c344412d"
+DEPENDS = "${X11_DEPENDS} ${WL_DEPENDS} assimp devil gstreamer1.0 gstreamer1.0-plugins-base"
 DEPENDS_append_mx6q = " virtual/libgles2"
 DEPENDS_append_mx6dl = " virtual/libgles2"
 DEPENDS_append_mx6sx = " virtual/libgles2"
@@ -14,22 +14,19 @@ WL_DEPENDS = "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'wayland', '', 
 inherit fsl-eula-unpack
 
 # For backwards compatibility
-RPROVIDES_${PN} = "vivante-gpu-sdk"
-RREPLACES_${PN} = "vivante-gpu-sdk"
-RCONFLICTS_${PN} = "vivante-gpu-sdk"
+RPROVIDES_${PN} = "fsl-gpu-sdk"
+RREPLACES_${PN} = "fsl-gpu-sdk"
+RCONFLICTS_${PN} = "fsl-gpu-sdk"
 
-SRC_URI = "${FSL_MIRROR}/${PN}-${PV}.bin;fsl-eula=true \
-           file://Add-missing-cmath-include.patch \
-"
+SRC_URI = "${FSL_MIRROR}/${PN}-${PV}.bin;fsl-eula=true"
 
-SRC_URI[md5sum] = "79b40d39f9f2e49931b90083478a9270"
-SRC_URI[sha256sum] = "a187c4d88a2e399f3d911acfc1730e10312433ace98e72c17fa17c9821eb7ce0"
+SRC_URI[md5sum] = "b9d6da385fcc51f1c72a7ddcf10b5150"
+SRC_URI[sha256sum] = "ddeab8c297d17159b14be58d3690158e6fac3f12b2180610218ef6b46b4ff53a"
+
+SRC_URI += "file://Add-missing-cmath-include.patch"
 
 BACKEND = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'X11', \
                     bb.utils.contains('DISTRO_FEATURES', 'wayland', 'Wayland', 'FB', d), d)}"
-
-HAS_VPU = "1"
-HAS_VPU_mx6sx = "0"
 
 IS_MX6SL = "0"
 IS_MX6SL_mx6sl = "1"
@@ -55,12 +52,12 @@ do_install () {
         ./build_OpenVG.sh -f GNUmakefile_Yocto EGLBackend=${BACKEND} install
     fi
     cp -r bin/* "${D}/opt/${PN}"
-    if [ "${HAS_VPU}" = "0" ]; then
-        rm -rf ${D}/opt/${PN}/GLES2/DirectMultiSamplingVideoYUV
-        rm -rf ${D}/opt/${PN}/GLES3/DirectMultiSamplingVideoYUV
-    fi
+
     rm -rf ${D}/opt/${PN}/GLES2/S05_PrecompiledShader
     rm -rf ${D}/opt/${PN}/GLES3/S05_PrecompiledShader
+    rm -rf ${D}/opt/${PN}/GLES2/DeBayer
+    rm -rf ${D}/opt/${PN}/GLES2/DirectMultiSamplingVideoYUV
+    rm -rf ${D}/opt/${PN}/GLES3/DirectMultiSamplingVideoYUV
 }
 
 FILES_${PN} += "/opt/${PN}"
