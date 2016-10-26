@@ -11,14 +11,8 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 
 SOC_TOOLS_TEST = ""
-SOC_TOOLS_TEST_vf  = "imx-test"
-SOC_TOOLS_TEST_mx6 = "imx-test"
-SOC_TOOLS_TEST_mx6ul = "imx-test"
-SOC_TOOLS_TEST_mx7   = "imx-test"
-SOC_TOOLS_TEST_append_mx6q  = " imx-gpu-viv-demos"
-SOC_TOOLS_TEST_append_mx6dl = " imx-gpu-viv-demos"
-SOC_TOOLS_TEST_append_mx6sx = " imx-gpu-viv-demos"
-SOC_TOOLS_TEST_append_mx6sl = " imx-gpu-viv-demos"
+SOC_TOOLS_TEST_imxpxp  = "imx-test"
+SOC_TOOLS_TEST_imxgpu2d  = "imx-test imx-gpu-viv-demos"
 
 RDEPENDS_${PN} = " \
     alsa-utils \
@@ -46,4 +40,8 @@ RDEPENDS_${PN} = " \
 
 # FIXME: i.MX6SL cannot use mesa for Graphics and it lacks GL support,
 #        so for now we skip it.
-RDEPENDS_${PN}_remove_mx6sl = "clutter-1.0-examples"
+RDEPENDS_IMX_TO_REMOVE = ""
+RDEPENDS_IMX_TO_REMOVE_imxgpu2d = "clutter-1.0-examples"
+RDEPENDS_IMX_TO_REMOVE_imxgpu3d = ""
+
+RDEPENDS_${PN}_remove = "${RDEPENDS_IMX_TO_REMOVE}"
