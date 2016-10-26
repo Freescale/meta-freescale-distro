@@ -23,4 +23,8 @@ CORE_IMAGE_EXTRA_INSTALL += " \
                          'weston-xwayland xterm', '', d)} \
 "
 
-CORE_IMAGE_EXTRA_INSTALL_remove_mx6sl = "clutter-1.0-examples"
+PACKAGE_IMX_TO_REMOVE = ""
+PACKAGE_IMX_TO_REMOVE_imxgpu2d = "clutter-1.0-examples"
+PACKAGE_IMX_TO_REMOVE_imxgpu3d = ""
+
+CORE_IMAGE_EXTRA_INSTALL_remove = "${PACKAGE_IMX_TO_REMOVE}"
