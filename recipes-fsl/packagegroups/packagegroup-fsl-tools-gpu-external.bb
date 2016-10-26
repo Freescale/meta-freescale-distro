@@ -10,32 +10,20 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit packagegroup
 
-SOC_GPU_TOOLS_X11 = " \
-    mesa-demos \
-    glmark2 \
-"
-
-SOC_GPU_TOOLS_X11_append_mx6q  = " eglinfo-x11 gtkperf glcompbench"
-SOC_GPU_TOOLS_X11_append_mx6dl = " eglinfo-x11 gtkperf glcompbench"
-SOC_GPU_TOOLS_X11_append_mx6sx = " eglinfo-x11 gtkperf glcompbench"
-SOC_GPU_TOOLS_X11_append_mx6sl = " gtkperf"
+SOC_GPU_TOOLS_X11 = ""
+SOC_GPU_TOOLS_X11_imxgpu2d = " mesa-demos glmark2 gtkperf"
+SOC_GPU_TOOLS_X11_append_imxgpu3d = " eglinfo-x11 glcompbench"
 
 SOC_GPU_TOOLS_FB = ""
-SOC_GPU_TOOLS_FB_mx6q  = "eglinfo-fb"
-SOC_GPU_TOOLS_FB_mx6dl = "eglinfo-fb"
-SOC_GPU_TOOLS_FB_mx6sx = "eglinfo-fb"
+SOC_GPU_TOOLS_FB_imxgpu3d  = "eglinfo-fb"
 
 SOC_GPU_TOOLS_WAYLAND = ""
-SOC_GPU_TOOLS_WAYLAND_mx6q  = "mesa-demos glmark2"
-SOC_GPU_TOOLS_WAYLAND_mx6dl = "mesa-demos glmark2"
-SOC_GPU_TOOLS_WAYLAND_mx6sx = "mesa-demos glmark2"
-SOC_GPU_TOOLS_WAYLAND_mx6sl = "mesa-demos"
+SOC_GPU_TOOLS_WAYLAND_imxgpu2d = "mesa-demos"
+SOC_GPU_TOOLS_WAYLAND_append_imxgpu3d = " glmark2"
 
 SOC_GPU_TOOLS_XWAYLAND = ""
-SOC_GPU_TOOLS_XWAYLAND_mx6q  = "mesa-demos gtkperf glmark2"
-SOC_GPU_TOOLS_XWAYLAND_mx6dl = "mesa-demos gtkperf glmark2"
-SOC_GPU_TOOLS_XWAYLAND_mx6sx = "mesa-demos gtkperf glmark2"
-SOC_GPU_TOOLS_XWAYLAND_mx6sl = "mesa-demos gtkperf"
+SOC_GPU_TOOLS_XWAYLAND_imxgpu2d = "mesa-demos gtkperf"
+SOC_GPU_TOOLS_XWAYLAND_append_imxgpu3d = " glmark2"
 
 RDEPENDS_${PN} = " \
     ${@bb.utils.contains("DISTRO_FEATURES", "x11 wayland", "${SOC_GPU_TOOLS_XWAYLAND}", \
