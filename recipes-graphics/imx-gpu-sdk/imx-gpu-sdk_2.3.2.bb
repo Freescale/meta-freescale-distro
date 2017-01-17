@@ -34,21 +34,14 @@ do_compile () {
     export FSL_PLATFORM_NAME=Yocto
     export ROOTFS=${STAGING_DIR_HOST}
     if [ "${IMXGPU}" = "3d" ]; then
-        ./build.sh -f GNUmakefile_Yocto EGLBackend=${BACKEND}
-    else
-        ./build_OpenVG.sh -f GNUmakefile_Yocto EGLBackend=${BACKEND}
-    fi
-}
-
-do_install () {
-    export FSL_GRAPHICS_SDK=${S}
-    export FSL_PLATFORM_NAME=Yocto
-    install -d "${D}/opt/${PN}"
-    if [ "${IMXGPU}" = "3d" ]; then
         ./build.sh -f GNUmakefile_Yocto EGLBackend=${BACKEND} install
     else
         ./build_OpenVG.sh -f GNUmakefile_Yocto EGLBackend=${BACKEND} install
     fi
+}
+
+do_install () {
+    install -d "${D}/opt/${PN}"
     cp -r bin/* "${D}/opt/${PN}"
 
     rm -rf ${D}/opt/${PN}/GLES2/S05_PrecompiledShader
