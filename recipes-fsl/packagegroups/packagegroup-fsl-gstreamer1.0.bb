@@ -63,7 +63,6 @@ RRECOMMENDS_${PN}-base = " \
 # Basic audio plugins: parsers, demuxers, decoders
 RDEPENDS_${PN}-audio = " \
     ${PN}-base \
-    gstreamer1.0-plugins-base-ivorbisdec \
     gstreamer1.0-plugins-base-ogg \
     gstreamer1.0-plugins-good-audioparsers \
     gstreamer1.0-plugins-good-flac \
