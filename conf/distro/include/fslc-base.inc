@@ -2,6 +2,8 @@ require conf/distro/poky.conf
 
 DISTRO = "fslc-base"
 DISTRO_NAME = "FSLC Distro Base"
+DISTRO_VERSION = "2.3-snapshot-${DATE}"
+
 SDK_VENDOR = "-fslcsdk"
 
 MAINTAINER = "FSL Community Team <meta-freescale@yoctoproject.org>"
