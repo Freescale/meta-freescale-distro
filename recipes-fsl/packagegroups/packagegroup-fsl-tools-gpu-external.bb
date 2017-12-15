@@ -18,11 +18,9 @@ SOC_TOOLS_GPU_FB = ""
 SOC_TOOLS_GPU_FB_imxgpu3d  = "eglinfo-fb"
 
 SOC_TOOLS_GPU_WAYLAND = ""
-SOC_TOOLS_GPU_WAYLAND_imxgpu3d = "glmark2"
 
 SOC_TOOLS_GPU_XWAYLAND = ""
 SOC_TOOLS_GPU_XWAYLAND_imxgpu2d = "mesa-demos gtkperf"
-SOC_TOOLS_GPU_XWAYLAND_append_imxgpu3d = " glmark2"
 
 RDEPENDS_${PN} = " \
     ${@bb.utils.contains("DISTRO_FEATURES", "x11 wayland", "${SOC_TOOLS_GPU_XWAYLAND}", \
