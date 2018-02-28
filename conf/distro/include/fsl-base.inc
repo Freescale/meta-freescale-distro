@@ -20,6 +20,13 @@ PREFERRED_PROVIDER_u-boot_mx6ul = "u-boot-imx"
 PREFERRED_PROVIDER_u-boot_mx6ull = "u-boot-imx"
 PREFERRED_PROVIDER_u-boot_mx7d = "u-boot-imx"
 
+UBOOT_MACHINE_mx6 = "mx6qsabresd_config"
+UBOOT_SUFFIX_mx6 = "imx"
+SPL_BINARY_mx6 = ""
+UBOOT_MAKE_TARGET_mx6 = "u-boot.imx"
+WKS_FILE = "imx-uboot-bootpart.wks"
+
+
 PREFERRED_PROVIDER_virtual/bootloader_mx6dl = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx6q = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx6sl = "u-boot-imx"
