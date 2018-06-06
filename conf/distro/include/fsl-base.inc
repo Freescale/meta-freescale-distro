@@ -60,3 +60,6 @@ PREFERRED_VERSION_gstreamer1.0 = "1.12.imx"
 PREFERRED_VERSION_gstreamer1.0-plugins-base = "1.12.imx"
 PREFERRED_VERSION_gstreamer1.0-plugins-good = "1.12.imx"
 PREFERRED_VERSION_gstreamer1.0-plugins-bad = "1.12.imx"
+
+# Use i.MX libdrm Version
+PREFERRED_VERSION_libdrm = "2.4.84.imx"
