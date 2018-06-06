@@ -43,3 +43,9 @@ MACHINE_GSTREAMER_1_0_PLUGIN_mx6sx = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN_mx6ul = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN_mx6ull = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN_mx7d = "imx-gst1.0-plugin"
+
+# Use i.MX Gstreamer Version
+PREFERRED_VERSION_gstreamer1.0 = "1.12.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-base = "1.12.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-good = "1.12.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-bad = "1.12.imx"
