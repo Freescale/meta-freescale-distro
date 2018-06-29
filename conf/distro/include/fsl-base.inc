@@ -21,7 +21,6 @@ PREFERRED_PROVIDER_u-boot_mx6ull = "u-boot-imx"
 PREFERRED_PROVIDER_u-boot_mx7d = "u-boot-imx"
 PREFERRED_PROVIDER_u-boot_mx7ulp = "u-boot-imx"
 
-UBOOT_MACHINE_mx6 = "mx6qsabresd_config"
 UBOOT_SUFFIX_mx6 = "imx"
 SPL_BINARY_mx6 = ""
 UBOOT_MAKE_TARGET_mx6 = "u-boot.imx"
