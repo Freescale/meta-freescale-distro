@@ -107,7 +107,7 @@ RDEPENDS_${PN}-debug = " \
 # Basic networking plugins required by most pipelines that receive and/or send data
 RDEPENDS_${PN}-network-base = " \
     gstreamer1.0-plugins-base-tcp \
-    gstreamer1.0-plugins-good-souphttpsrc \
+    gstreamer1.0-plugins-good-soup \
     gstreamer1.0-plugins-good-udp \
 "
 
