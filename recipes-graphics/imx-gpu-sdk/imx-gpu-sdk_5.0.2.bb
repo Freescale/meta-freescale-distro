@@ -10,10 +10,14 @@ DEPENDS_append = \
                                                                 '', d), d)}"
 DEPENDS_append_imxgpu2d = " virtual/libg2d virtual/libopenvg"
 DEPENDS_append_imxgpu3d = " virtual/libgles2"
+DEPENDS_append_mx8      = \
+    "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', '', \
+        bb.utils.contains('DISTRO_FEATURES',     'x11', '', \
+                                                        ' vulkan', d), d)}"
 
-SRC_URI = "git://github.com/NXPmicro/gtec-demo-framework.git;protocol=http"
+SRC_URI = "git://github.com/codeauroraforum/gtec-demo-framework.git;protocol=https"
 
-SRCREV = "0b3aa9f4e7c3a43a4a733ce833160761d1b9ee38"
+SRCREV = "d35bac9419895ea516c25e2f36a6084729d9e6ce"
 
 # For backwards compatibility
 RPROVIDES_${PN} = "fsl-gpu-sdk"
@@ -25,18 +29,29 @@ BACKEND = \
         bb.utils.contains('DISTRO_FEATURES',     'x11',     'X11', \
                                                              'FB', d), d)}"
 
-FEATURES_append_imxgpu2d = "EGL,OpenVG,G2D,EarlyAccess"
+FEATURES                  = "EGL,EarlyAccess,OpenVG"
+FEATURES_append_imxgpu2d  = ",G2D"
 FEATURES_append_imxgpu3d = ",OpenGLES2"
 FEATURES_append_mx6q     = ",OpenGLES3"
 FEATURES_append_mx6dl    = ",OpenGLES3"
+FEATURES_append_mx8       = ",OpenGLES3,OpenGLES3.1,OpenCL,OpenCL1.1,OpenCL1.2,OpenCV"
+FEATURES_append_mx8       = \
+    "${@bb.utils.contains('DISTRO_FEATURES', 'wayland',        '', \
+        bb.utils.contains('DISTRO_FEATURES',     'x11',        '', \
+                                                        ',Vulkan', d), d)}"
+
+EXTENSIONS       = ""
+EXTENSIONS_mx8mq = "OpenGLES3.1:EXT_geometry_shader,OpenGLES3.1:EXT_tessellation_shader"
 
 S = "${WORKDIR}/git"
+
+inherit python3native
 
 do_compile () {
     export FSL_PLATFORM_NAME=Yocto
     export ROOTFS=${STAGING_DIR_HOST}
     . ./prepare.sh
-    FslBuild.py -t sdk -u [${FEATURES}] -v --Variants [WindowSystem=${BACKEND}] -- install -j 2
+    FslBuild.py -t sdk --UseFeatures [${FEATURES}] -v --UseExtensions [${EXTENSIONS}] --Variants [WindowSystem=${BACKEND}] --BuildThreads ${BB_NUMBER_THREADS} -- install
 }
 
 do_install () {
@@ -51,4 +66,4 @@ FILES_${PN} += "/opt/${PN}"
 FILES_${PN}-dbg += "/opt/${PN}/*/*/.debug /usr/src/debug"
 INSANE_SKIP_${PN} += "already-stripped rpaths"
 
-COMPATIBLE_MACHINE = "(mx6|mx7ulp)"
+COMPATIBLE_MACHINE = "(mx6|mx7ulp|mx8)"
