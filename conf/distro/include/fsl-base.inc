@@ -59,10 +59,10 @@ MACHINE_GSTREAMER_1_0_PLUGIN_mx7ulp = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN_mx8mq = "imx-gst1.0-plugin"
 
 # Use i.MX Gstreamer Version
-PREFERRED_VERSION_gstreamer1.0 = "1.12.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-base = "1.12.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-good = "1.12.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-bad = "1.12.imx"
+PREFERRED_VERSION_gstreamer1.0 = "1.14.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-base = "1.14.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-good = "1.14.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-bad = "1.14.imx"
 
 # Use i.MX libdrm Version
 PREFERRED_VERSION_libdrm = "2.4.84.imx"
