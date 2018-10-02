@@ -61,10 +61,6 @@ MACHINE_GSTREAMER_1_0_PLUGIN_mx7d = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN_mx7ulp = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN_mx8mq = "imx-gst1.0-plugin"
 
-PREFERRED_VERSION_linux-libc-headers_mx6 = "4.9"
-PREFERRED_VERSION_linux-libc-headers_mx7 = "4.9"
-PREFERRED_VERSION_linux-libc-headers_mx8 = "4.9"
-
 # Use i.MX Gstreamer Version
 PREFERRED_VERSION_gstreamer1.0 = "1.14.imx"
 PREFERRED_VERSION_gstreamer1.0-plugins-base = "1.14.imx"
