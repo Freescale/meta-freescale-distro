@@ -71,4 +71,4 @@ PREFERRED_VERSION_gstreamer1.0-plugins-bad = "1.14.imx"
 PREFERRED_VERSION_libdrm = "2.4.91.imx"
 
 # Enable allow-autospawn-for-root as default
-PACKAGECONFIG_pn-pulseaudio_append = " autospawn-for-root"
+PACKAGECONFIG_append_pn-pulseaudio = " autospawn-for-root"
