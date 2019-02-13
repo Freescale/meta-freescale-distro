@@ -23,11 +23,6 @@ PREFERRED_PROVIDER_u-boot_mx7ulp = "u-boot-imx"
 PREFERRED_PROVIDER_u-boot_mx8mq = "u-boot-imx"
 PREFERRED_PROVIDER_u-boot_mx8mm = "u-boot-imx"
 
-UBOOT_SUFFIX_mx6 = "imx"
-SPL_BINARY_mx6 = ""
-UBOOT_MAKE_TARGET_mx6 = "u-boot.imx"
-WKS_FILE = "imx-uboot-bootpart.wks"
-
 
 PREFERRED_PROVIDER_virtual/bootloader_mx6dl = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx6q = "u-boot-imx"
@@ -68,7 +63,7 @@ PREFERRED_VERSION_gstreamer1.0-plugins-good = "1.14.imx"
 PREFERRED_VERSION_gstreamer1.0-plugins-bad = "1.14.imx"
 
 # Use i.MX libdrm Version
-PREFERRED_VERSION_libdrm = "2.4.84.imx"
+PREFERRED_VERSION_libdrm = "2.4.91.imx"
 
 # Enable allow-autospawn-for-root as default
-PACKAGECONFIG_pn-pulseaudio_append = " autospawn-for-root"
+PACKAGECONFIG_append_pn-pulseaudio = " autospawn-for-root"
