@@ -31,10 +31,17 @@ BACKEND = \
 
 FEATURES                  = "EGL,EarlyAccess,OpenVG"
 FEATURES_append_imxgpu2d  = ",G2D"
-FEATURES_append_imxgpu3d = ",OpenGLES2"
-FEATURES_append_mx6q     = ",OpenGLES3"
-FEATURES_append_mx6dl    = ",OpenGLES3"
-FEATURES_append_mx8       = ",OpenGLES3,OpenGLES3.1,OpenCL,OpenCL1.1,OpenCL1.2,OpenCV"
+FEATURES_append_imxgpu3d  = ",OpenGLES2"
+FEATURES_append_mx6q      = ",OpenGLES3"
+FEATURES_append_mx6dl     = ",OpenGLES3"
+
+# i.MX 8M Mini does not have a support for OpenGLES3.1, therefore the split is done
+# here to remove it from feature list. All other derivatives contains this support.
+FEATURES_append_mx8mm     = ",OpenGLES3,OpenCL,OpenCL1.1,OpenCL1.2,OpenCV"
+FEATURES_append_mx8mq     = ",OpenGLES3,OpenGLES3.1,OpenCL,OpenCL1.1,OpenCL1.2,OpenCV"
+FEATURES_append_mx8qm     = ",OpenGLES3,OpenGLES3.1,OpenCL,OpenCL1.1,OpenCL1.2,OpenCV"
+FEATURES_append_mx8x      = ",OpenGLES3,OpenGLES3.1,OpenCL,OpenCL1.1,OpenCL1.2,OpenCV"
+
 FEATURES_append_mx8       = \
     "${@bb.utils.contains('DISTRO_FEATURES', 'wayland',        '', \
         bb.utils.contains('DISTRO_FEATURES',     'x11',        '', \
