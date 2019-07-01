@@ -17,5 +17,7 @@ RDEPENDS_${PN} = " \
     iperf3 \
     nbench-byte \
     tiobench \
-    ${@bb.utils.contains('TUNE_FEATURES', 'neon', 'cpuburn-neon', '', d)} \
+    ${@bb.utils.contains('TUNE_FEATURES', 'neon',             'cpuburn-neon', \
+       bb.utils.contains('TUNE_FEATURES', 'cortexa53 crypto', 'cpuburn-neon', \
+                                                              '', d), d)} \
 "
