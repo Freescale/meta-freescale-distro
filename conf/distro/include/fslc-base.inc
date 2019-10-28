@@ -2,7 +2,7 @@ require conf/distro/poky.conf
 
 DISTRO = "fslc-base"
 DISTRO_NAME = "FSLC Distro Base"
-DISTRO_VERSION = "2.8-snapshot-${DATE}"
+DISTRO_VERSION = "3.0"
 
 SDK_VENDOR = "-fslcsdk"
 
