@@ -22,6 +22,7 @@ PREFERRED_PROVIDER_u-boot_mx7d = "u-boot-imx"
 PREFERRED_PROVIDER_u-boot_mx7ulp = "u-boot-imx"
 PREFERRED_PROVIDER_u-boot_mx8mq = "u-boot-imx"
 PREFERRED_PROVIDER_u-boot_mx8mm = "u-boot-imx"
+PREFERRED_PROVIDER_u-boot_mx8mn = "u-boot-imx"
 
 # Use fsl configuration instead of fslc configuration
 MACHINEOVERRIDES_prepend = "use-fsl-bsp:"
@@ -36,6 +37,7 @@ PREFERRED_PROVIDER_virtual/bootloader_mx7d = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx7ulp = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx8mq = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx8mm = "u-boot-imx"
+PREFERRED_PROVIDER_virtual/bootloader_mx8mn = "u-boot-imx"
 
 PREFERRED_PROVIDER_virtual/kernel_mx6dl = "linux-imx"
 PREFERRED_PROVIDER_virtual/kernel_mx6q = "linux-imx"
@@ -47,6 +49,7 @@ PREFERRED_PROVIDER_virtual/kernel_mx7d = "linux-imx"
 PREFERRED_PROVIDER_virtual/kernel_mx7ulp = "linux-imx"
 PREFERRED_PROVIDER_virtual/kernel_mx8mq = "linux-imx"
 PREFERRED_PROVIDER_virtual/kernel_mx8mm = "linux-imx"
+PREFERRED_PROVIDER_virtual/kernel_mx8mn = "linux-imx"
 
 MACHINE_GSTREAMER_1_0_PLUGIN_mx6dl = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN_mx6q = "imx-gst1.0-plugin"
