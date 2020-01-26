@@ -12,7 +12,6 @@ inherit packagegroup
 
 SOC_TOOLS_GPU_X11 = ""
 SOC_TOOLS_GPU_X11_imxgpu2d = " mesa-demos glmark2 gtkperf"
-SOC_TOOLS_GPU_X11_append_imxgpu3d = " eglinfo-x11"
 
 SOC_TOOLS_GPU_FB = ""
 SOC_TOOLS_GPU_FB_imxgpu3d  = "eglinfo-fb"
