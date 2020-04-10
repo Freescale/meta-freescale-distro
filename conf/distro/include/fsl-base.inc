@@ -24,8 +24,8 @@ PREFERRED_PROVIDER_u-boot_mx8mq = "u-boot-imx"
 PREFERRED_PROVIDER_u-boot_mx8mm = "u-boot-imx"
 PREFERRED_PROVIDER_u-boot_mx8mn = "u-boot-imx"
 
-# Use fsl configuration instead of fslc configuration
-MACHINEOVERRIDES_prepend = "use-fsl-bsp:"
+# Use NXP BSP for default
+IMX_DEFAULT_BSP = "nxp"
 
 PREFERRED_PROVIDER_virtual/bootloader_mx6dl = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx6q = "u-boot-imx"
