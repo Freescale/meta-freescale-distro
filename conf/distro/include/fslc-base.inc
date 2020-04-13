@@ -38,6 +38,8 @@ DISTRO_ARM_INSTRUCTION ?= "thumb"
 DISTRO_ARM_INSTRUCTION_armv5 ?= "arm"
 ARM_INSTRUCTION_SET_fslc ??= "${DISTRO_ARM_INSTRUCTION}"
 
+PACKAGECONFIG_remove_pn-xserver-xorg_armv5 = "dri"
+
 # Log information on images and packages
 INHERIT += "buildhistory"
 BUILDHISTORY_COMMIT = "1"
