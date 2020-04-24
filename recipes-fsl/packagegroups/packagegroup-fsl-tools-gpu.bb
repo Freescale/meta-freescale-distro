@@ -22,7 +22,6 @@ SOC_TOOLS_GPU_imxgpu2d = " \
 
 SOC_TOOLS_GPU_append_imxgpu3d = " \
     imx-gpu-apitrace \
-    imx-gpu-apitrace-bin \
 "
 
 RDEPENDS_${PN} = " \
