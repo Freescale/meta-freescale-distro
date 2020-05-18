@@ -1,0 +1,29 @@
+From f511ee11327041ba0ac4ea7f2969fed0dff4cda4 Mon Sep 17 00:00:00 2001
+From: Andrey Zhizhikin <andrey.z@gmail.com>
+Date: Fri, 15 May 2020 20:20:32 +0000
+Subject: [PATCH] BasicTypes.hpp: include missing stdexcept
+
+This header is needed for std::runtime_error element
+
+Upstream-Status: Pending
+
+Signed-off-by: Andrey Zhizhikin <andrey.z@gmail.com>
+---
+ DemoFramework/FslBase/include/FslBase/BasicTypes.hpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/DemoFramework/FslBase/include/FslBase/BasicTypes.hpp b/DemoFramework/FslBase/include/FslBase/BasicTypes.hpp
+index 7ffa248f..c7ad01ff 100644
+--- a/DemoFramework/FslBase/include/FslBase/BasicTypes.hpp
++++ b/DemoFramework/FslBase/include/FslBase/BasicTypes.hpp
+@@ -35,6 +35,7 @@
+ #include <stdint.h>
+ #else
+ #include <cstdint>
++#include <stdexcept>
+ #endif
+ 
+ #define FSL_PARAM_NOT_USED(pARAM) ((void)(pARAM))
+-- 
+2.17.1
+

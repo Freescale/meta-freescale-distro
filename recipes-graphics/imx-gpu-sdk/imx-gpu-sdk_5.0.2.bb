@@ -15,7 +15,9 @@ DEPENDS_append_mx8      = \
         bb.utils.contains('DISTRO_FEATURES',     'x11', '', \
                                                         ' vulkan', d), d)}"
 
-SRC_URI = "git://github.com/codeauroraforum/gtec-demo-framework.git;protocol=https"
+SRC_URI = "git://github.com/codeauroraforum/gtec-demo-framework.git;protocol=https \
+           file://0001-BasicTypes.hpp-include-missing-stdexcept.patch \
+"
 
 SRCREV = "d35bac9419895ea516c25e2f36a6084729d9e6ce"
 
