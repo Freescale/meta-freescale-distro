@@ -62,10 +62,10 @@ MACHINE_GSTREAMER_1_0_PLUGIN_mx7ulp = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN_mx8mq = "imx-gst1.0-plugin"
 
 # Use i.MX Gstreamer Version
-PREFERRED_VERSION_gstreamer1.0 = "1.14.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-base = "1.14.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-good = "1.14.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-bad = "1.14.imx"
+PREFERRED_VERSION_gstreamer1.0 = "1.16.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-base = "1.16.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-good = "1.16.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-bad = "1.16.imx"
 
 # Enable allow-autospawn-for-root as default
 PACKAGECONFIG_append_pn-pulseaudio = " autospawn-for-root"
