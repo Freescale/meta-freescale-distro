@@ -9,6 +9,7 @@ DEPENDS_BACKEND = \
                                                                 '', d), d)}"
 DEPENDS_MX8       = ""
 DEPENDS_MX8_mx8   = " \
+    glslang-native \
     rapidopencl \
     rapidopenvx \
     rapidvulkan \
