@@ -28,6 +28,7 @@ DEPENDS = " \
     gstreamer1.0-plugins-base \
     gtest \
     half \
+    ninja-native \
     rapidjson \
     stb \
     zlib \
@@ -40,7 +41,7 @@ DEPENDS_append_imxgpu3d = " virtual/libgles2"
 GPU_SDK_SRC ?= "git://github.com/nxpmicro/gtec-demo-framework.git;protocol=https"
 GPU_SDK_SRC_BRANCH ?= "master"
 SRC_URI = "${GPU_SDK_SRC};branch=${GPU_SDK_SRC_BRANCH}"
-SRCREV = "81da0a88e8310181814d88be4a2513220d487ca2"
+SRCREV = "42a8ae8042bfdb96c70ff399c2852c3a0650fe1b"
 
 S = "${WORKDIR}/git"
 
@@ -57,7 +58,7 @@ FEATURES_append           = "${FEATURES_SOC}"
 FEATURES_SOC       = ""
 FEATURES_SOC_mx6q  = ",OpenGLES3"
 FEATURES_SOC_mx6dl = ",OpenGLES3"
-FEATURES_SOC_mx8   = ",OpenCV,Vulkan,OpenGLES3,OpenGLES3.1,OpenCL,OpenCL1.1,OpenCL1.2,OpenVX,OpenVX1.1"
+FEATURES_SOC_mx8   = ",OpenCV,Vulkan,OpenGLES3.2,OpenCL1.2,OpenVX1.1"
 FEATURES_SOC_mx8mm = ",OpenCV"
 
 EXTENSIONS       = "*"
