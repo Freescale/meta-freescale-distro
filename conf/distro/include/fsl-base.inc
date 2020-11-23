@@ -80,3 +80,7 @@ PREFERRED_VERSION_gstreamer1.0-plugins-bad = "1.16.imx"
 
 # Enable allow-autospawn-for-root as default
 PACKAGECONFIG_append_pn-pulseaudio = " autospawn-for-root"
+
+# Vulkan loader libraries are dynamically loaded and so must be added
+# to the rootfs explicitly
+DISTRO_EXTRA_RRECOMMENDS += "${@bb.utils.contains('DISTRO_FEATURES', 'vulkan', 'vulkan-loader', '', d)}"
