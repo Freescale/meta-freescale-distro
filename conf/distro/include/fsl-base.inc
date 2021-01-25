@@ -10,6 +10,9 @@ TARGET_VENDOR = "-fsl"
 
 DISTROOVERRIDES = "fsl"
 
+# Use NXP BSP for default
+IMX_DEFAULT_BSP = "nxp"
+
 # The following set the providers to components supported by NXP
 # Use i.MX Kernel, U-Boot and Gstreamer 1.0 providers
 PREFERRED_PROVIDER_u-boot_mx6dl = "u-boot-imx"
@@ -25,10 +28,6 @@ PREFERRED_PROVIDER_u-boot_mx8mm = "u-boot-imx"
 PREFERRED_PROVIDER_u-boot_mx8mn = "u-boot-imx"
 PREFERRED_PROVIDER_u-boot_mx8qxp = "u-boot-imx"
 PREFERRED_PROVIDER_u-boot_mx8qm = "u-boot-imx"
-
-# Use NXP BSP for default
-IMX_DEFAULT_BSP = "nxp"
-
 PREFERRED_PROVIDER_virtual/bootloader_mx6dl = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx6q = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx6sl = "u-boot-imx"
@@ -42,6 +41,11 @@ PREFERRED_PROVIDER_virtual/bootloader_mx8mm = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx8mn = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx8qxp = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx8qm = "u-boot-imx"
+# u-boot-imx does not use a SPL, override machine configs
+UBOOT_MAKE_TARGET = "u-boot.imx"
+UBOOT_SUFFIX = "imx"
+SPL_BINARY = ""
+WKS_FILE = "imx-uboot-bootpart.wks.in"
 
 PREFERRED_PROVIDER_virtual/kernel_mx6dl = "linux-imx"
 PREFERRED_PROVIDER_virtual/kernel_mx6q = "linux-imx"
