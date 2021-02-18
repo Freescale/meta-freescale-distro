@@ -33,11 +33,6 @@ PREFERRED_PROVIDER_virtual/bootloader_mx6ull = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx7d = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx7ulp = "u-boot-imx"
 PREFERRED_PROVIDER_virtual/bootloader_mx8 = "u-boot-imx"
-# u-boot-imx does not use a SPL, override machine configs
-UBOOT_MAKE_TARGET ?= "u-boot.imx"
-UBOOT_SUFFIX ?= "imx"
-SPL_BINARY ?= ""
-WKS_FILE ?= "imx-uboot-bootpart.wks.in"
 
 PREFERRED_PROVIDER_virtual/kernel_mx6dl = "linux-imx"
 PREFERRED_PROVIDER_virtual/kernel_mx6q = "linux-imx"
