@@ -10,30 +10,12 @@ TARGET_VENDOR = "-fsl"
 
 DISTROOVERRIDES = "fsl"
 
-# Use NXP BSP for default
+# Use NXP BSP and u-boot for default
 IMX_DEFAULT_BSP = "nxp"
+IMX_DEFAULT_BOOTLOADER = "u-boot-imx"
 
 # The following set the providers to components supported by NXP
-# Use i.MX Kernel, U-Boot and Gstreamer 1.0 providers
-PREFERRED_PROVIDER_u-boot_mx6dl = "u-boot-imx"
-PREFERRED_PROVIDER_u-boot_mx6q = "u-boot-imx"
-PREFERRED_PROVIDER_u-boot_mx6sl = "u-boot-imx"
-PREFERRED_PROVIDER_u-boot_mx6sx = "u-boot-imx"
-PREFERRED_PROVIDER_u-boot_mx6ul = "u-boot-imx"
-PREFERRED_PROVIDER_u-boot_mx6ull = "u-boot-imx"
-PREFERRED_PROVIDER_u-boot_mx7d = "u-boot-imx"
-PREFERRED_PROVIDER_u-boot_mx7ulp = "u-boot-imx"
-PREFERRED_PROVIDER_u-boot_mx8 = "u-boot-imx"
-PREFERRED_PROVIDER_virtual/bootloader_mx6dl = "u-boot-imx"
-PREFERRED_PROVIDER_virtual/bootloader_mx6q = "u-boot-imx"
-PREFERRED_PROVIDER_virtual/bootloader_mx6sl = "u-boot-imx"
-PREFERRED_PROVIDER_virtual/bootloader_mx6sx = "u-boot-imx"
-PREFERRED_PROVIDER_virtual/bootloader_mx6ul = "u-boot-imx"
-PREFERRED_PROVIDER_virtual/bootloader_mx6ull = "u-boot-imx"
-PREFERRED_PROVIDER_virtual/bootloader_mx7d = "u-boot-imx"
-PREFERRED_PROVIDER_virtual/bootloader_mx7ulp = "u-boot-imx"
-PREFERRED_PROVIDER_virtual/bootloader_mx8 = "u-boot-imx"
-
+# Use i.MX Kernel and Gstreamer 1.0 providers
 PREFERRED_PROVIDER_virtual/kernel_mx6dl = "linux-imx"
 PREFERRED_PROVIDER_virtual/kernel_mx6q = "linux-imx"
 PREFERRED_PROVIDER_virtual/kernel_mx6sl = "linux-imx"
