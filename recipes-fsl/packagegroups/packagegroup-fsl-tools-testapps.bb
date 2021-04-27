@@ -15,6 +15,15 @@ SOC_TOOLS_TEST_imx = "imx-test"
 SOC_TOOLS_TEST_imxgpu  = "imx-test imx-gpu-viv-demos"
 SOC_TOOLS_TEST_qoriq = "ceetm optee-test-qoriq"
 
+SOC_TOOLS_IMX_TESTAPPS = " \
+    vlan \
+    cryptodev-module \
+    cryptodev-tests \
+"
+
+SOC_TOOLS_TESTAPPS = ""
+SOC_TOOLS_TESTAPPS_imx = "${SOC_TOOLS_IMX_TESTAPPS}"
+
 RDEPENDS_${PN} = " \
     alsa-utils \
     alsa-tools \
@@ -37,6 +46,24 @@ RDEPENDS_${PN} = " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', \
                          'weston-examples clutter-1.0-examples', '', d)} \
     ${SOC_TOOLS_TEST} \
+    ${SOC_TOOLS_TESTAPPS} \
+    procps \
+    ptpd \
+    linuxptp \
+    iw \
+    can-utils \
+    cpufrequtils \
+    nano \
+    ntpdate \
+    minicom \
+    coreutils \
+    mmc-utils \
+    udev-extraconf \
+    e2fsprogs-resize2fs \
+    openssl-bin \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'tk', '', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'weston-examples', '', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'wifi', 'hostapd', '', d)} \
 "
 
 # FIXME: i.MX6SL cannot use mesa for Graphics and it lacks GL support,
