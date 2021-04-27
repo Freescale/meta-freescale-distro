@@ -13,8 +13,6 @@ SOC_TOOLS_GPU = ""
 
 # i.MX6 SoloLite does not support apitrace because of its dependency on gles2.
 SOC_TOOLS_GPU_imxgpu2d = " \
-    imx-gpu-sdk \
-    imx-gpu-viv-tools \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', '', \
        bb.utils.contains('DISTRO_FEATURES',     'x11', 'xserver-xorg-extension-viv-autohdmi', \
                                                        '', d), d)} \
@@ -22,6 +20,11 @@ SOC_TOOLS_GPU_imxgpu2d = " \
 
 SOC_TOOLS_GPU_append_imxgpu3d = " \
     imx-gpu-apitrace \
+"
+
+SOC_TOOLS_GPU_append_imxgpu = " \
+    imx-gpu-sdk \
+    imx-gpu-viv-tools \
 "
 
 RDEPENDS_${PN} = " \
