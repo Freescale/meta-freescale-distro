@@ -11,8 +11,8 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 
 SOC_TOOLS_TEST = ""
-SOC_TOOLS_TEST_imxpxp  = "imx-test"
-SOC_TOOLS_TEST_imxgpu2d  = "imx-test imx-gpu-viv-demos"
+SOC_TOOLS_TEST_imx = "imx-test"
+SOC_TOOLS_TEST_imxgpu  = "imx-test imx-gpu-viv-demos"
 SOC_TOOLS_TEST_qoriq = "ceetm optee-test-qoriq"
 
 RDEPENDS_${PN} = " \
