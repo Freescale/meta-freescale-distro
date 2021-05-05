@@ -1,0 +1,26 @@
+From 4ea121f3a2af89e39d6fe703c9040ad254d816b2 Mon Sep 17 00:00:00 2001
+From: "Peter Hille (png!das-system)" <peter@das-system-networks.de>
+Date: Tue, 28 Aug 2018 15:34:05 +0200
+Subject: [PATCH] Fix ordered comparison of pointer and zero
+
+Upstream-Status: Backport [https://github.com/g-truc/gli/commit/4ea121f3a2af89e39d6fe703c9040ad254d816b2]
+---
+ test/core/core_convert.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/test/core/core_convert.cpp b/test/core/core_convert.cpp
+index 7a4366c6..38297186 100644
+--- a/test/core/core_convert.cpp
++++ b/test/core/core_convert.cpp
+@@ -33,7 +33,7 @@ bool convert_rgb32f_rgb9e5(const char* FilenameSrc, const char* FilenameDst)
+ {
+ 	if(FilenameDst == NULL)
+ 		return false;
+-	if(std::strstr(FilenameDst, ".dds") > 0 || std::strstr(FilenameDst, ".ktx") > 0)
++	if(std::strstr(FilenameDst, ".dds") != nullptr || std::strstr(FilenameDst, ".ktx") != nullptr)
+ 		return false;
+ 
+ 	gli::texture2d TextureSource(gli::load(FilenameSrc));
+-- 
+2.17.1
+
