@@ -10,11 +10,9 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://readme.md;beginline=19;endline=20;md5=ab03b667ee630c1abb1add70365a50fb"
 
 SRC_URI = " \
-    git://github.com/g-truc/gli;branch=0.8.2 \
-    file://0001-Set-C-standard-through-CMake-standard-options.patch \
-    file://0001-Fix-ordered-comparison-of-pointer-and-zero.patch \
+    git://github.com/g-truc/gli \
 "
-SRCREV = "30808550a20ca53a255e6e1e77070493eda7b736"
+SRCREV = "0c171ee87fcfe35a7e0e0445adef06f92e0b6a91"
 S = "${WORKDIR}/git"
 
 inherit cmake
