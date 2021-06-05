@@ -35,14 +35,11 @@ RDEPENDS_${PN} = " \
     mtd-utils-ubifs \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'gtk+3-demo', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', \
-                         'weston-examples clutter-1.0-examples', '', d)} \
+                         'weston-examples', '', d)} \
     ${SOC_TOOLS_TEST} \
 "
 
-# FIXME: i.MX6SL cannot use mesa for Graphics and it lacks GL support,
-#        so for now we skip it.
 RDEPENDS_IMX_TO_REMOVE = ""
-RDEPENDS_IMX_TO_REMOVE_imxgpu2d = "clutter-1.0-examples"
 RDEPENDS_IMX_TO_REMOVE_imxgpu3d = ""
 
 RDEPENDS_${PN}_remove = "${RDEPENDS_IMX_TO_REMOVE}"
