@@ -26,6 +26,8 @@ PREFERRED_PROVIDER_virtual/kernel_mx7d = "linux-imx"
 PREFERRED_PROVIDER_virtual/kernel_mx7ulp = "linux-imx"
 PREFERRED_PROVIDER_virtual/kernel_mx8 = "linux-imx"
 
+PREFERRED_PROVIDER_linux-imx-mfgtool = "linux-imx-mfgtool"
+
 MACHINE_GSTREAMER_1_0_PLUGIN_mx6dl = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN_mx6q = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN_mx6sl = "imx-gst1.0-plugin"
