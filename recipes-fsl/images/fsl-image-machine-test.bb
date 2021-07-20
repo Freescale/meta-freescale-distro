@@ -22,6 +22,8 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     packagegroup-fsl-tools-gpu-external \
     packagegroup-fsl-tools-testapps \
     packagegroup-fsl-tools-benchmark \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', \
+                         'firmwared', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', \
                          'weston weston-init', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11 wayland', \
