@@ -6,12 +6,12 @@ LICENSE_FLAGS = "commercial"
 
 inherit packagegroup
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     packagegroup-fsl-gstreamer1.0 \
 "
 
 # Plugins from the -ugly collection which require the "commercial" flag in LICENSE_FLAGS_WHITELIST to be set
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     gstreamer1.0-plugins-ugly-asf \
     gstreamer1.0-libav \
 "

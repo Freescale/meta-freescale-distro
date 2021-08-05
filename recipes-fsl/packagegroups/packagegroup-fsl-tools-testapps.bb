@@ -15,7 +15,7 @@ SOC_TOOLS_TEST_imx = "imx-test"
 SOC_TOOLS_TEST_imxgpu  = "imx-test imx-gpu-viv-demos"
 SOC_TOOLS_TEST_qoriq = "ceetm optee-test-qoriq"
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     alsa-utils \
     alsa-tools \
     dosfstools \
@@ -42,4 +42,4 @@ RDEPENDS_${PN} = " \
 RDEPENDS_IMX_TO_REMOVE = ""
 RDEPENDS_IMX_TO_REMOVE_imxgpu3d = ""
 
-RDEPENDS_${PN}_remove = "${RDEPENDS_IMX_TO_REMOVE}"
+RDEPENDS:${PN}:remove = "${RDEPENDS_IMX_TO_REMOVE}"

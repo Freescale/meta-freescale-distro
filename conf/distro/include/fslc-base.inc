@@ -35,14 +35,14 @@ def arm_tune_handler(d):
 DEFAULTTUNE_fslc := "${@arm_tune_handler(d)}"
 
 DISTRO_ARM_INSTRUCTION ?= "thumb"
-DISTRO_ARM_INSTRUCTION_armv5 ?= "arm"
+DISTRO_ARM_INSTRUCTION:armv5 ?= "arm"
 ARM_INSTRUCTION_SET_fslc ??= "${DISTRO_ARM_INSTRUCTION}"
 
-PACKAGECONFIG_remove_pn-xserver-xorg_armv5 = "dri"
+PACKAGECONFIG:remove:pn-xserver-xorg:armv5 = "dri"
 
 # Log information on images and packages
 INHERIT += "buildhistory"
 BUILDHISTORY_COMMIT = "1"
 
 # Use bluez5 as default.
-DISTRO_FEATURES_append = " bluez5"
+DISTRO_FEATURES:append = " bluez5"

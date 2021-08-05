@@ -8,14 +8,14 @@ IMAGE_FEATURES += " \
 
 LICENSE = "MIT"
 
-CORE_IMAGE_EXTRA_INSTALL_append = "\
+CORE_IMAGE_EXTRA_INSTALL:append = "\
     packagegroup-core-boot \
     packagegroup-core-full-cmdline \
     packagegroup-fsl-network \
 "
 
 # SPI Nor-Flash
-NETWORK_TOOLS_append_fsl-lsch3 = "\
+NETWORK_TOOLS:append_fsl-lsch3 = "\
     mtd-utils \
 "
 
