@@ -20,7 +20,7 @@ SOC_TOOLS_GPU_WAYLAND = ""
 SOC_TOOLS_GPU_XWAYLAND = ""
 SOC_TOOLS_GPU_XWAYLAND_imxgpu2d = "mesa-demos gtkperf"
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     ${@bb.utils.contains("DISTRO_FEATURES", "x11 wayland", "${SOC_TOOLS_GPU_XWAYLAND}", \
        bb.utils.contains("DISTRO_FEATURES",     "wayland", "${SOC_TOOLS_GPU_WAYLAND}", \
        bb.utils.contains("DISTRO_FEATURES",         "x11", "${SOC_TOOLS_GPU_X11}", \

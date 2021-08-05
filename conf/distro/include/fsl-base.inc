@@ -45,4 +45,4 @@ PREFERRED_VERSION_gstreamer1.0-plugins-good = "1.16.imx"
 PREFERRED_VERSION_gstreamer1.0-plugins-bad = "1.16.imx"
 
 # Enable allow-autospawn-for-root as default
-PACKAGECONFIG_append_pn-pulseaudio = " autospawn-for-root"
+PACKAGECONFIG:append:pn-pulseaudio = " autospawn-for-root"

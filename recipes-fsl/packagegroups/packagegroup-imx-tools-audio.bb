@@ -27,7 +27,7 @@ PULSEAUDIO_INSTALL = " \
                                            "", d)} \
 "
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     ${@bb.utils.contains("DISTRO_FEATURES", "alsa",  "${ALSA_INSTALL}", "", d)} \
     ${@bb.utils.contains("DISTRO_FEATURES", "pulseaudio",  "${PULSEAUDIO_INSTALL}", "", d)} \
 "
