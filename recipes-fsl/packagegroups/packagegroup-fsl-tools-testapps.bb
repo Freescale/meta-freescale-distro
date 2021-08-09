@@ -11,9 +11,9 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 
 SOC_TOOLS_TEST = ""
-SOC_TOOLS_TEST_imx = "imx-test"
-SOC_TOOLS_TEST_imxgpu  = "imx-test imx-gpu-viv-demos"
-SOC_TOOLS_TEST_qoriq = "ceetm optee-test-qoriq"
+SOC_TOOLS_TEST:imx = "imx-test"
+SOC_TOOLS_TEST:imxgpu  = "imx-test imx-gpu-viv-demos"
+SOC_TOOLS_TEST:qoriq = "ceetm optee-test-qoriq"
 
 RDEPENDS:${PN} = " \
     alsa-utils \
@@ -40,6 +40,6 @@ RDEPENDS:${PN} = " \
 "
 
 RDEPENDS_IMX_TO_REMOVE = ""
-RDEPENDS_IMX_TO_REMOVE_imxgpu3d = ""
+RDEPENDS_IMX_TO_REMOVE:imxgpu3d = ""
 
 RDEPENDS:${PN}:remove = "${RDEPENDS_IMX_TO_REMOVE}"

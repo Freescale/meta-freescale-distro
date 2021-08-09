@@ -13,7 +13,7 @@ NETWORK_TOOLS = "\
 	tcpdump \
 "
 
-NETWORK_TOOLS:append_qoriq = " \
+NETWORK_TOOLS:append:qoriq = " \
 	ceetm \
 	dpdk \
 	ovs-dpdk \
@@ -22,24 +22,24 @@ NETWORK_TOOLS:append_qoriq = " \
 "
 
 # Data Place Acceleration Architecture
-NETWORK_TOOLS:append_fsl-lsch2 = "\
+NETWORK_TOOLS:append:fsl-lsch2 = "\
 	eth-config \
 "
 
 # 2nd generation Data Place Acceleration Architecture
-NETWORK_TOOLS:append_ls1088a = "\
+NETWORK_TOOLS:append:ls1088a = "\
 	aiopsl \
 	gpp-aioptool \
 	ofp \
 "
 
-NETWORK_TOOLS:append_ls2088a = "\
+NETWORK_TOOLS:append:ls2088a = "\
 	aiopsl \
 	gpp-aioptool \
 	ofp \
 "
 
-NETWORK_TOOLS:append_fsl-lsch3 = "\
+NETWORK_TOOLS:append:fsl-lsch3 = "\
 	dce \
 	restool \
 	spc \

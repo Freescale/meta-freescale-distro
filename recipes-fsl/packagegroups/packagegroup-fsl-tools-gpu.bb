@@ -12,17 +12,17 @@ inherit packagegroup
 SOC_TOOLS_GPU = ""
 
 # i.MX6 SoloLite does not support apitrace because of its dependency on gles2.
-SOC_TOOLS_GPU_imxgpu2d = " \
+SOC_TOOLS_GPU:imxgpu2d = " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', '', \
        bb.utils.contains('DISTRO_FEATURES',     'x11', 'xserver-xorg-extension-viv-autohdmi', \
                                                        '', d), d)} \
 "
 
-SOC_TOOLS_GPU:append_imxgpu3d = " \
+SOC_TOOLS_GPU:append:imxgpu3d = " \
     imx-gpu-apitrace \
 "
 
-SOC_TOOLS_GPU:append_imxgpu = " \
+SOC_TOOLS_GPU:append:imxgpu = " \
     imx-gpu-sdk \
     imx-gpu-viv-tools \
 "
