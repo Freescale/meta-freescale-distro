@@ -15,7 +15,7 @@ CORE_IMAGE_EXTRA_INSTALL:append = "\
 "
 
 # SPI Nor-Flash
-NETWORK_TOOLS:append_fsl-lsch3 = "\
+NETWORK_TOOLS:append:fsl-lsch3 = "\
     mtd-utils \
 "
 
