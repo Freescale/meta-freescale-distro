@@ -18,6 +18,10 @@ SOC_TOOLS_GPU:imxgpu2d = " \
                                                        '', d), d)} \
 "
 
+SOC_TOOLS_GPU:append:imxgpu3d = " \
+    imx-gpu-apitrace \
+"
+
 SOC_TOOLS_GPU:append:imxgpu = " \
     imx-gpu-sdk \
     imx-gpu-viv-tools \
