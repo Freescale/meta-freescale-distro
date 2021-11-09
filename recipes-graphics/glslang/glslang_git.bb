@@ -13,7 +13,7 @@ LIC_FILES_CHKSUM = "\
 "
 
 PV = "8.13.3743+git${SRCPV}"
-SRC_URI = "git://github.com/KhronosGroup/glslang"
+SRC_URI = "git://github.com/KhronosGroup/glslang;protocol=https;branch=master"
 SRCREV = "bcf6a2430e99e8fc24f9f266e99316905e6d5134"
 S = "${WORKDIR}/git"
 
