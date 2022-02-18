@@ -42,7 +42,7 @@ PACKAGECONFIG:remove:pn-xserver-xorg:armv5 = "dri"
 
 # Log information on images and packages
 INHERIT += "buildhistory"
-BUILDHISTORY_COMMIT = "1"
+BUILDHISTORY_COMMIT ?= "1"
 
 # Use bluez5 as default.
 DISTRO_FEATURES:append = " bluez5"
