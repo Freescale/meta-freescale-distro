@@ -16,26 +16,14 @@ IMX_DEFAULT_BOOTLOADER = "u-boot-imx"
 
 # The following set the providers to components supported by NXP
 # Use i.MX Kernel and Gstreamer 1.0 providers
-PREFERRED_PROVIDER_virtual/kernel:mx6dl-nxp-bsp = "linux-imx"
-PREFERRED_PROVIDER_virtual/kernel:mx6q-nxp-bsp = "linux-imx"
-PREFERRED_PROVIDER_virtual/kernel:mx6sl-nxp-bsp = "linux-imx"
-PREFERRED_PROVIDER_virtual/kernel:mx6sx-nxp-bsp = "linux-imx"
-PREFERRED_PROVIDER_virtual/kernel:mx6ul-nxp-bsp = "linux-imx"
-PREFERRED_PROVIDER_virtual/kernel:mx6ull-nxp-bsp = "linux-imx"
-PREFERRED_PROVIDER_virtual/kernel:mx7d-nxp-bsp = "linux-imx"
-PREFERRED_PROVIDER_virtual/kernel:mx7ulp-nxp-bsp = "linux-imx"
+PREFERRED_PROVIDER_virtual/kernel:mx6-nxp-bsp = "linux-imx"
+PREFERRED_PROVIDER_virtual/kernel:mx7-nxp-bsp = "linux-imx"
 PREFERRED_PROVIDER_virtual/kernel:mx8-nxp-bsp = "linux-imx"
 
 PREFERRED_PROVIDER_linux-imx-mfgtool = "linux-imx-mfgtool"
 
-MACHINE_GSTREAMER_1_0_PLUGIN:mx6dl-nxp-bsp = "imx-gst1.0-plugin"
-MACHINE_GSTREAMER_1_0_PLUGIN:mx6q-nxp-bsp = "imx-gst1.0-plugin"
-MACHINE_GSTREAMER_1_0_PLUGIN:mx6sl-nxp-bsp = "imx-gst1.0-plugin"
-MACHINE_GSTREAMER_1_0_PLUGIN:mx6sx-nxp-bsp = "imx-gst1.0-plugin"
-MACHINE_GSTREAMER_1_0_PLUGIN:mx6ul-nxp-bsp = "imx-gst1.0-plugin"
-MACHINE_GSTREAMER_1_0_PLUGIN:mx6ull-nxp-bsp = "imx-gst1.0-plugin"
-MACHINE_GSTREAMER_1_0_PLUGIN:mx7d-nxp-bsp = "imx-gst1.0-plugin"
-MACHINE_GSTREAMER_1_0_PLUGIN:mx7ulp-nxp-bsp = "imx-gst1.0-plugin"
+MACHINE_GSTREAMER_1_0_PLUGIN:mx6-nxp-bsp = "imx-gst1.0-plugin"
+MACHINE_GSTREAMER_1_0_PLUGIN:mx7-nxp-bsp = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN:mx8-nxp-bsp = "imx-gst1.0-plugin"
 
 # Use i.MX Gstreamer Version
