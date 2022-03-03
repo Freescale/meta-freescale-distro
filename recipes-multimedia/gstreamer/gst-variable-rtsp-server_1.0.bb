@@ -4,7 +4,7 @@ SUMMARY = "RTSP server for live-stream from a v4l2 video source"
 HOMEPAGE = "https://github.com/Gateworks/gst-gateworks-apps"
 SECTION = "multimedia"
 
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 
 inherit pkgconfig
 
