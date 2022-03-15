@@ -5,5 +5,5 @@
 # if this is an error or by design, but setting it manually does help and
 # doesn't seem to hurt...
 if test -z "$XDG_RUNTIME_DIR"; then
-	export XDG_RUNTIME_DIR=/run/user/`id -u`
+	export XDG_RUNTIME_DIR=/run/user/`id -u weston`
 fi
