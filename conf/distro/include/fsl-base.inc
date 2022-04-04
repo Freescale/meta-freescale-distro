@@ -34,6 +34,7 @@ PREFERRED_VERSION_gstreamer1.0-plugins-bad  = "1.18.5.imx"
 PREFERRED_VERSION_gstreamer1.0-plugins-ugly = "1.18.5"
 PREFERRED_VERSION_gstreamer1.0-libav        = "1.18.5"
 PREFERRED_VERSION_gstreamer1.0-rtsp-server  = "1.18.5"
+PREFERRED_VERSION_ffmpeg                    = "4.4.1"
 
 # Enable allow-autospawn-for-root as default
 PACKAGECONFIG:append:pn-pulseaudio = " autospawn-for-root"
