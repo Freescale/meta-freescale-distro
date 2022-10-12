@@ -34,10 +34,6 @@ def arm_tune_handler(d):
 
 DEFAULTTUNE:fslc := "${@arm_tune_handler(d)}"
 
-DISTRO_ARM_INSTRUCTION ?= "thumb"
-DISTRO_ARM_INSTRUCTION:armv5 ?= "arm"
-ARM_INSTRUCTION_SET:fslc ??= "${DISTRO_ARM_INSTRUCTION}"
-
 PACKAGECONFIG:remove:pn-xserver-xorg:armv5 = "dri"
 
 # Log information on images and packages
