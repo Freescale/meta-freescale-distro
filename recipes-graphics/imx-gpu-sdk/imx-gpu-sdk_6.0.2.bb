@@ -10,13 +10,16 @@ DEPENDS_BACKEND = \
 DEPENDS_MX8       = ""
 DEPENDS_MX8:mx8-nxp-bsp   = " \
     glslang-native \
+    opencv \
     rapidopencl \
     rapidopenvx \
     rapidvulkan \
     vulkan-headers \
     vulkan-loader \
 "
-DEPENDS_MX8:mx8mm-nxp-bsp = ""
+DEPENDS_MX8:mx8mm-nxp-bsp = " \
+    opencv \
+"
 DEPENDS = " \
     assimp \
     cmake-native \
@@ -29,6 +32,7 @@ DEPENDS = " \
     gtest \
     half \
     ninja-native \
+    nlohmann-json \
     rapidjson \
     stb \
     zlib \
@@ -38,10 +42,8 @@ DEPENDS = " \
 DEPENDS:append:imxgpu2d = " virtual/libg2d virtual/libopenvg"
 DEPENDS:append:imxgpu3d = " virtual/libgles2"
 
-GPU_SDK_SRC ?= "git://github.com/nxpmicro/gtec-demo-framework.git;protocol=https"
-GPU_SDK_SRC_BRANCH ?= "master"
-SRC_URI = "${GPU_SDK_SRC};branch=${GPU_SDK_SRC_BRANCH}"
-SRCREV = "7ea472feb6dffc96104ca3e2eab637af62095a3b"
+SRC_URI = "git://github.com/nxpmicro/gtec-demo-framework.git;protocol=https;branch=master"
+SRCREV = "2c77d1ed4e9ae477b32ebb22c5dfb8e5cb530a8e"
 
 S = "${WORKDIR}/git"
 
@@ -50,16 +52,16 @@ BACKEND = \
         bb.utils.contains('DISTRO_FEATURES',     'x11',     'X11', \
                                                              'FB', d), d)}"
 
-FEATURES                  = "EarlyAccess,EGL,GoogleUnitTest,OpenVG"
+FEATURES                  = "EarlyAccess,EGL,GoogleUnitTest,Lib_NlohmannJson,OpenVG"
 FEATURES:append:imxgpu2d  = ",G2D"
 FEATURES:append:imxgpu3d  = ",OpenGLES2"
 FEATURES:append           = "${FEATURES_SOC}"
 
-FEATURES_SOC       = ""
+FEATURES_SOC               = ""
 FEATURES_SOC:mx6q-nxp-bsp  = ",OpenGLES3"
 FEATURES_SOC:mx6dl-nxp-bsp = ",OpenGLES3"
-FEATURES_SOC:mx8-nxp-bsp   = ",OpenCV,Vulkan,OpenGLES3.2,OpenCL1.2,OpenVX1.1"
-FEATURES_SOC:mx8mm-nxp-bsp = ",OpenCV"
+FEATURES_SOC:mx8-nxp-bsp   = ",OpenCV4,Vulkan1.2,OpenGLES3.2,OpenCL1.2,OpenVX1.1"
+FEATURES_SOC:mx8mm-nxp-bsp = ",OpenCV4"
 
 EXTENSIONS       = "*"
 EXTENSIONS:mx6q-nxp-bsp  = "OpenGLES3:GL_EXT_geometry_shader,OpenGLES3:GL_EXT_tessellation_shader"
