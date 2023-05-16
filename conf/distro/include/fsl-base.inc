@@ -27,10 +27,10 @@ MACHINE_GSTREAMER_1_0_PLUGIN:mx7-nxp-bsp = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN:mx8-nxp-bsp = "imx-gst1.0-plugin"
 
 # Use i.MX Gstreamer Version
-PREFERRED_VERSION_gstreamer1.0              = "1.20.0.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-base = "1.20.0.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-good = "1.20.0.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-bad  = "1.20.0.imx"
+PREFERRED_VERSION_gstreamer1.0              = "1.20.3.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-base = "1.20.3.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-good = "1.20.3.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-bad  = "1.20.3.imx"
 PREFERRED_VERSION_ffmpeg                    = "4.4.1"
 
 # Enable allow-autospawn-for-root as default
