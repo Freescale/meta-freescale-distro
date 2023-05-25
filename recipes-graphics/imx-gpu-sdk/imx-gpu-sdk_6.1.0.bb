@@ -4,9 +4,9 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://License.md;md5=9d58a2573275ce8c35d79576835dbeb8"
 
 DEPENDS_BACKEND = \
-    "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', ' wayland', \
-        bb.utils.contains('DISTRO_FEATURES',     'x11',  ' xrandr', \
-                                                                '', d), d)}"
+    "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', ' libxdg-shell wayland', \
+        bb.utils.contains('DISTRO_FEATURES',     'x11',               ' xrandr', \
+                                                                             '', d), d)}"
 DEPENDS_MX8       = ""
 DEPENDS_MX8:mx8-nxp-bsp   = " \
     glslang-native \
@@ -42,38 +42,37 @@ DEPENDS = " \
 DEPENDS:append:imxgpu2d = " virtual/libg2d virtual/libopenvg"
 DEPENDS:append:imxgpu3d = " virtual/libgles2"
 
-SRC_URI = "git://github.com/nxpmicro/gtec-demo-framework.git;protocol=https;branch=master"
-SRCREV = "2c77d1ed4e9ae477b32ebb22c5dfb8e5cb530a8e"
+require imx-gpu-sdk-src.inc
 
 S = "${WORKDIR}/git"
 
-BACKEND = \
-    "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'Wayland', \
-        bb.utils.contains('DISTRO_FEATURES',     'x11',     'X11', \
-                                                             'FB', d), d)}"
+WINDOW_SYSTEM = \
+    "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'Wayland_XDG', \
+        bb.utils.contains('DISTRO_FEATURES',     'x11',         'X11', \
+                                                                 'FB', d), d)}"
 
 FEATURES                  = "EarlyAccess,EGL,GoogleUnitTest,Lib_NlohmannJson,OpenVG"
 FEATURES:append:imxgpu2d  = ",G2D"
 FEATURES:append:imxgpu3d  = ",OpenGLES2"
 FEATURES:append           = "${FEATURES_SOC}"
 
-FEATURES_SOC               = ""
-FEATURES_SOC:mx6q-nxp-bsp  = ",OpenGLES3"
-FEATURES_SOC:mx6dl-nxp-bsp = ",OpenGLES3"
-FEATURES_SOC:mx8-nxp-bsp   = ",OpenCV4,Vulkan1.2,OpenGLES3.2,OpenCL1.2,OpenVX1.1"
-FEATURES_SOC:mx8mm-nxp-bsp = ",OpenCV4"
+FEATURES_SOC              = ""
+FEATURES_SOC:mx6q-nxp-bsp         = ",OpenGLES3"
+FEATURES_SOC:mx6dl-nxp-bsp        = ",OpenGLES3"
+FEATURES_SOC:mx8-nxp-bsp          = ",OpenCV4,Vulkan1.2,OpenGLES3.2,OpenCL1.2,OpenVX1.2"
+FEATURES_SOC:mx8mm-nxp-bsp        = ",OpenCV4"
 
-EXTENSIONS       = "*"
-EXTENSIONS:mx6q-nxp-bsp  = "OpenGLES3:GL_EXT_geometry_shader,OpenGLES3:GL_EXT_tessellation_shader"
-EXTENSIONS:mx6dl-nxp-bsp = "OpenGLES3:GL_EXT_geometry_shader,OpenGLES3:GL_EXT_tessellation_shader"
-EXTENSIONS:mx8m-nxp-bsp  = "OpenGLES3:GL_EXT_color_buffer_float"
+EXTENSIONS               = "*"
+EXTENSIONS:mx6q-nxp-bsp  = "OpenGLES:GL_VIV_direct_texture,OpenGLES3:GL_EXT_geometry_shader,OpenGLES3:GL_EXT_tessellation_shader"
+EXTENSIONS:mx6dl-nxp-bsp = "OpenGLES:GL_VIV_direct_texture,OpenGLES3:GL_EXT_geometry_shader,OpenGLES3:GL_EXT_tessellation_shader"
+EXTENSIONS:mx8m-nxp-bsp  = "OpenGLES:GL_VIV_direct_texture,OpenGLES3:GL_EXT_color_buffer_float"
 EXTENSIONS:mx8mm-nxp-bsp = "*"
 
 do_compile () {
     export FSL_PLATFORM_NAME=Yocto
     export ROOTFS=${STAGING_DIR_HOST}
     . ./prepare.sh
-    FslBuild.py -vvvvv -t sdk --UseFeatures [${FEATURES}] --UseExtensions [${EXTENSIONS}] --Variants [WindowSystem=${BACKEND}] --BuildThreads ${@oe.utils.parallel_make(d)} -c install --CMakeInstallPrefix ${S}
+    FslBuild.py -vvvvv -t sdk --UseFeatures [${FEATURES}] --UseExtensions [${EXTENSIONS}] --Variants [WindowSystem=${WINDOW_SYSTEM}] --BuildThreads ${@oe.utils.parallel_make(d)} -c install --CMakeInstallPrefix ${S}
 }
 
 REMOVALS = " \
@@ -115,11 +114,13 @@ RDEPENDS_EMPTY_MAIN_PACKAGE = " \
     glm \
     googletest \
     half \
+    nlohmann-json \
     rapidjson \
     stb \
 "
 RDEPENDS_EMPTY_MAIN_PACKAGE_MX8       = ""
 RDEPENDS_EMPTY_MAIN_PACKAGE_MX8:mx8-nxp-bsp   = " \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'libxdg-shell', '', d)} \
     rapidopencl \
     rapidopenvx \
     rapidvulkan \
@@ -128,7 +129,7 @@ RDEPENDS_EMPTY_MAIN_PACKAGE_MX8:mx8mm-nxp-bsp = ""
 # vulkan-loader is dynamically loaded, so need to add an explicit
 # dependency
 RDEPENDS_VULKAN_LOADER       = ""
-RDEPENDS_VULKAN_LOADER:mx8-nxp-bsp   = "vulkan-loader"
+RDEPENDS_VULKAN_LOADER:mx8-nxp-bsp   = "vulkan-validationlayers vulkan-loader"
 RDEPENDS_VULKAN_LOADER:mx8mm-nxp-bsp = ""
 RDEPENDS:${PN} += " \
     ${RDEPENDS_EMPTY_MAIN_PACKAGE} \
