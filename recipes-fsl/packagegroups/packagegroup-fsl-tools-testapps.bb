@@ -21,7 +21,7 @@ RDEPENDS:${PN} = " \
     dosfstools \
     evtest \
     e2fsprogs-mke2fs \
-    fsl-rc-local \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'sysvinit', 'fsl-rc-local', '', d)} \
     fbset \
     i2c-tools \
     iproute2 \
