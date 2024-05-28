@@ -8,7 +8,7 @@ SRC_URI = "file://rc.local.etc \
            file://rc.local.init \
            file://LICENSE"
 
-S = "${WORKDIR}"
+UNPACKDIR = "${S}"
 
 inherit update-rc.d
 
