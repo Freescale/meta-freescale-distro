@@ -10,7 +10,7 @@ SRC_URI = "https://sourceforge.net/projects/half/files/half/${PV}/${BP}.zip"
 SRC_URI[md5sum] = "cd28e42c77b99e4cca4f5e9fc76e0433"
 SRC_URI[sha256sum] = "ad1788afe0300fa2b02b0d1df128d857f021f92ccf7c8bddd07812685fa07a25"
 
-S = "${WORKDIR}"
+UNPACKDIR = "${S}"
 
 do_install () {
     install -d ${D}${includedir}
