@@ -1,0 +1,34 @@
+# License Information for meta-freescale-distro Layer
+
+This file lists all the licenses used by the recipes in this layer.
+
+## MIT License
+- recipes-devtools/half/half_2.1.0.bb
+- recipes-devtools/stb/stb_git.bb
+- recipes-fsl/images/fsl-image-machine-test.bb
+- recipes-fsl/images/fsl-image-multimedia.bb
+- recipes-fsl/packagegroups/packagegroup-fsl-gstreamer1.0-commercial.bb
+- recipes-fsl/packagegroups/packagegroup-fsl-gstreamer1.0-full.bb
+- recipes-fsl/packagegroups/packagegroup-fsl-network.bb
+- recipes-fsl/packagegroups/packagegroup-fsl-tools-benchmark.bb
+- recipes-fsl/packagegroups/packagegroup-fsl-tools-gpu-external.bb
+- recipes-fsl/packagegroups/packagegroup-fsl-tools-gpu.bb
+- recipes-fsl/packagegroups/packagegroup-fsl-tools-testapps.bb
+- recipes-fsl/packagegroups/packagegroup-imx-tools-audio.bb
+- recipes-graphics/gli/gli_0.8.4.0.bb
+
+## LGPL-2.0-only License
+- recipes-fsl/fsl-rc-local/fsl-rc-local.bb
+
+## LGPL-2.1-only License
+- recipes-graphics/devil/devil_1.8.0.bb
+
+## BSD-3-Clause License
+- recipes-graphics/imx-gpu-sdk/imx-gpu-sdk_6.1.1.bb
+- recipes-graphics/imx-gpu-sdk/libxdg-shell.bb
+- recipes-graphics/rapidopencl/rapidopencl_1.1.0.1.bb
+- recipes-graphics/rapidopenvx/rapidopenvx_1.1.0.bb
+- recipes-graphics/vulkan/assimp_5.0.1.bb
+
+## GPL-3.0-only License
+- recipes-multimedia/gstreamer/gst-variable-rtsp-server_1.0.bb
