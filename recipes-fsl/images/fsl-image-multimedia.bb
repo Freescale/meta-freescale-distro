@@ -21,6 +21,8 @@ CORE_IMAGE_EXTRA_INSTALL += " \
                           gtk+3-demo', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11 wayland', \
                          'weston-xwayland xterm', '', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'sysvinit', \
+                         'weston-sysvinit', '', d)} \
 "
 
 PACKAGE_IMX_TO_REMOVE = ""
