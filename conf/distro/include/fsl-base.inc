@@ -21,8 +21,6 @@ PREFERRED_PROVIDER_virtual/kernel:mx7-nxp-bsp = "linux-imx"
 PREFERRED_PROVIDER_virtual/kernel:mx8-nxp-bsp = "linux-imx"
 PREFERRED_PROVIDER_virtual/kernel:mx9-nxp-bsp = "linux-imx"
 
-PREFERRED_PROVIDER_linux-imx-mfgtool = "linux-imx-mfgtool"
-
 MACHINE_GSTREAMER_1_0_PLUGIN:mx6-nxp-bsp = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN:mx7-nxp-bsp = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN:mx8-nxp-bsp = "imx-gst1.0-plugin"
