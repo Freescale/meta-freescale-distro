@@ -28,12 +28,31 @@ MACHINE_GSTREAMER_1_0_PLUGIN:mx7-nxp-bsp = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN:mx8-nxp-bsp = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN:mx9-nxp-bsp = "imx-gst1.0-plugin"
 
-# Use i.MX Gstreamer Version
-PREFERRED_VERSION_gstreamer1.0              = "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-base = "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-good = "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-bad  = "1.22.5.imx"
 PREFERRED_VERSION_ffmpeg                    = "4.4.1"
+
+# GStreamer forked recipes
+PREFERRED_VERSION_gstreamer1.0:mx8-nxp-bsp              ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-bad:mx8-nxp-bsp  ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-base:mx8-nxp-bsp ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-good:mx8-nxp-bsp ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0:mx9-nxp-bsp              ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-bad:mx9-nxp-bsp  ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-base:mx9-nxp-bsp ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-good:mx9-nxp-bsp ??= "1.24.0.imx"
+
+# GStreamer copied recipes
+PREFERRED_VERSION_gst-devtools:mx8-nxp-bsp              ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-libav:mx8-nxp-bsp        ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-ugly:mx8-nxp-bsp ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-python:mx8-nxp-bsp       ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-rtsp-server:mx8-nxp-bsp  ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-vaapi:mx8-nxp-bsp        ??= "1.24.0.imx"
+PREFERRED_VERSION_gst-devtools:mx9-nxp-bsp              ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-libav:mx9-nxp-bsp        ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-ugly:mx9-nxp-bsp ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-python:mx9-nxp-bsp       ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-rtsp-server:mx9-nxp-bsp  ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-vaapi:mx9-nxp-bsp        ??= "1.24.0.imx"
 
 # Enable allow-autospawn-for-root as default
 PACKAGECONFIG:append:pn-pulseaudio = " autospawn-for-root"
