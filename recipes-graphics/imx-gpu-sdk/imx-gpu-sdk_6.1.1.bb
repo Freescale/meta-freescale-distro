@@ -44,7 +44,6 @@ DEPENDS:append:imxgpu3d = " virtual/libgles2"
 
 require imx-gpu-sdk-src.inc
 
-S = "${WORKDIR}/git"
 
 WINDOW_SYSTEM = \
     "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'Wayland_XDG', \

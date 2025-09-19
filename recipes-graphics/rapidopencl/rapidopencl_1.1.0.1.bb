@@ -6,8 +6,6 @@ SRC_URI = "git://github.com/Unarmed1000/RapidOpenCL;protocol=https;branch=master
 "
 SRCREV = "21254804a56ae96e8385c2652733c338d62da04f"
 
-S = "${WORKDIR}/git"
-
 # RapidOpenCL is a header-only C++11 RAII wrapper class, so the main package will be empty.
 
 do_install () {
