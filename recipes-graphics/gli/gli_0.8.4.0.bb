@@ -13,7 +13,6 @@ SRC_URI = " \
     git://github.com/g-truc/gli;protocol=https;branch=master \
 "
 SRCREV = "0c171ee87fcfe35a7e0e0445adef06f92e0b6a91"
-S = "${WORKDIR}/git"
 
 inherit cmake
 

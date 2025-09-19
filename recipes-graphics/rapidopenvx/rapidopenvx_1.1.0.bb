@@ -6,8 +6,6 @@ SRC_URI = "git://github.com/Unarmed1000/RapidOpenVX;protocol=https;branch=master
 "
 SRCREV = "909c7abbff0ee35610f07f6fadeaf3a2eadce36e"
 
-S = "${WORKDIR}/git"
-
 do_install () {
     install -d ${D}${includedir}
     cp -r ${S}/include/* ${D}${includedir}

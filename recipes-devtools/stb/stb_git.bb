@@ -7,8 +7,6 @@ PV = "0.0+git${SRCPV}"
 SRCREV = "f67165c2bb2af3060ecae7d20d6f731173485ad0"
 SRC_URI = "git://github.com/nothings/stb.git;protocol=https;branch=master"
 
-S = "${WORKDIR}/git"
-
 do_install() {
     install -d ${D}${includedir}
     for hdr in ${S}/*.h; do
