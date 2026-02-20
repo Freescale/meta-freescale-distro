@@ -26,8 +26,6 @@ MACHINE_GSTREAMER_1_0_PLUGIN:mx7-nxp-bsp = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN:mx8-nxp-bsp = "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN:mx9-nxp-bsp = "imx-gst1.0-plugin"
 
-PREFERRED_VERSION_ffmpeg                    = "4.4.1"
-
 # GStreamer forked recipes
 PREFERRED_VERSION_gstreamer1.0              ??= "1.24.7.imx"
 PREFERRED_VERSION_gstreamer1.0-plugins-bad  ??= "1.24.7.imx"
