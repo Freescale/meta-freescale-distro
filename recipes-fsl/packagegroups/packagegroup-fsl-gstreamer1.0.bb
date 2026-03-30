@@ -49,8 +49,7 @@ RDEPENDS:${PN}-base = " \
     gstreamer1.0-plugins-base-volume \
     gstreamer1.0-plugins-good-autodetect \
     ${MACHINE_GSTREAMER_1_0_PLUGIN} \
-    ${@bb.utils.contains("MACHINE_GSTREAMER_1_0_PLUGIN", "imx-gst1.0-plugin", "imx-gst1.0-plugin-gplay", "", d)} \
-    ${@bb.utils.contains("MACHINE_GSTREAMER_1_0_PLUGIN", "imx-gst1.0-plugin", "imx-gst1.0-plugin-grecorder", "", d)} \
+    ${@bb.utils.contains("MACHINE_GSTREAMER_1_0_PLUGIN", "imx-gst1.0-plugin", "imx-gst1.0-plugin-tools", "", d)} \
 "
 
 RRECOMMENDS:${PN}-base = " \
