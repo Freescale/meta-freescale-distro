@@ -32,7 +32,8 @@ def arm_tune_handler(d):
         tune = d.getVar('DEFAULTTUNE', True)
     return tune
 
-DEFAULTTUNE:fslc := "${@arm_tune_handler(d)}"
+DEFAULTTUNE:arm:fslc := "${@arm_tune_handler(d)}"
+DEFAULTTUNE:armeb:fslc := "${@arm_tune_handler(d)}"
 
 DISTRO_ARM_INSTRUCTION ?= "thumb"
 DISTRO_ARM_INSTRUCTION:armv5 ?= "arm"
