@@ -32,7 +32,8 @@ def arm_tune_handler(d):
         tune = d.getVar('DEFAULTTUNE', True)
     return tune
 
-DEFAULTTUNE:fslc := "${@arm_tune_handler(d)}"
+DEFAULTTUNE:arm:fslc := "${@arm_tune_handler(d)}"
+DEFAULTTUNE:armeb:fslc := "${@arm_tune_handler(d)}"
 
 PACKAGECONFIG:remove:pn-xserver-xorg:armv5 = "dri"
 
