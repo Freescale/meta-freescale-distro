@@ -25,6 +25,11 @@ URI: git://git.yoctoproject.org/meta-freescale
 branch: master
 revision: HEAD
 
+Maintainer
+----------
+
+Otavio Salvador <otavio.salvador@ossystems.com.br>
+
 Contributing
 ------------
 
