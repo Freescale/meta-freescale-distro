@@ -1,14 +1,7 @@
-require conf/distro/poky.conf
+# Settings shared by the fsl and fslc distros. Each distro requires poky.conf,
+# sets its own vendor strings and DISTROOVERRIDES, and then requires this file.
 
 DISTRO_VERSION = "5.0-snapshot-${DATE}"
-
-SDK_VENDOR = "-fslcsdk"
-
-MAINTAINER = "FSL Community Team <meta-freescale@yoctoproject.org>"
-
-TARGET_VENDOR = "-fslc"
-
-DISTROOVERRIDES = "fslc"
 
 # This function changes the default tune for machines which are based on armv7a
 # to use common tune value
