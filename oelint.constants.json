@@ -7,5 +7,14 @@
     "replacements": {
         "distros": [],
         "machines": []
-    }
+    },
+    "oelint-require-file-ignore": [
+        "conf/distro/poky.conf",
+        "conf/fragments/bsp/fslc.conf",
+        "conf/fragments/bsp/nxp.conf",
+        "conf/fragments/graphics/framebuffer.conf",
+        "conf/fragments/graphics/wayland.conf",
+        "conf/fragments/graphics/x11.conf",
+        "conf/fragments/graphics/xwayland.conf"
+    ]
 }
