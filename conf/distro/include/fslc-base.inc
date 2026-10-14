@@ -1,7 +1,5 @@
 require conf/distro/poky.conf
 
-DISTRO = "fslc-base"
-DISTRO_NAME = "FSLC Distro Base"
 DISTRO_VERSION = "5.0-snapshot-${DATE}"
 
 SDK_VENDOR = "-fslcsdk"
